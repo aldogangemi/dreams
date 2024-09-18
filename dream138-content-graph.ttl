@@ -1,0 +1,2515 @@
+@prefix amr: <https://w3id.org/framester/amr/> .
+@prefix boxing: <http://www.ontologydesignpatterns.org/ont/boxer/boxing.owl#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix fschema: <https://w3id.org/framester/schema/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pblr: <https://w3id.org/framester/data/propbank-3.4.0/LocalRole/> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix va: <http://verbatlas.org/> .
+@prefix wn30: <https://w3id.org/framester/wn/wn30/instances/> .
+@prefix wn30schema: <https://w3id.org/framester/wn/wn30/schema/> .
+
+dul:hasMember a owl:ObjectProperty .
+
+fred:conjunct_1 a boxing:Conjunct ;
+    dul:hasMember fred:be-located-at_1,
+        fred:picnic_1 .
+
+fred:look_1 a pbrs:look-02 ;
+    pblr:look-02.seemed-like fred:strange_1 ;
+    pblr:look-02.seemer fred:forest_1 .
+
+pblr:be-located-at-91.entity a owl:ObjectProperty .
+
+pblr:be-located-at-91.location a owl:ObjectProperty .
+
+pblr:look-02.seemed-like a owl:ObjectProperty .
+
+pblr:look-02.seemer a owl:ObjectProperty .
+
+pblr:picnic-01.eater a owl:ObjectProperty .
+
+fschema:subsumedUnder a owl:ObjectProperty .
+
+fred:Forest rdfs:subClassOf dul:Collection,
+        wn30:supersense-noun_group ;
+    owl:equivalentClass wn30:synset-forest-noun-1 .
+
+fred:Strange rdfs:subClassOf dul:Quality,
+        wn30:supersense-adj_all ;
+    owl:equivalentClass wn30:synset-strange-adjective-1 .
+
+fred:be-located-at_1 a pbrs:be-located-at-91 ;
+    pblr:be-located-at-91.entity fred:person_1 ;
+    pblr:be-located-at-91.location fred:forest_1 .
+
+fred:picnic_1 a pbrs:picnic-01 ;
+    pblr:picnic-01.eater fred:person_1 .
+
+fred:strange_1 a fred:Strange .
+
+pbrs:be-located-at-91 rdfs:subClassOf dul:Event .
+
+pbrs:look-02 rdfs:label "seeming, appear/seem" ;
+    rdfs:subClassOf dul:Event ;
+    fschema:subsumedUnder va:0511f .
+
+pbrs:picnic-01 rdfs:label "have picnic" ;
+    rdfs:subClassOf dul:Event .
+
+wn30:synset-forest-noun-1 wn30schema:gloss "the trees and other plants in a large densely wooded area"@en-us .
+
+wn30:synset-strange-adjective-1 wn30schema:gloss "being definitely out of the ordinary and unexpected; slightly odd or even a bit weird; \"a strange exaltation that was indefinable\"; \"a strange fantastical mind\"; \"what a strange sense of humor she has\""@en-us .
+
+fred:forest_1 a fred:Forest .
+
+fred:person_1 a amr:Person .
+
+
+# presuppositions
+
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wn30: <https://w3id.org/framester/wn/wn30/instances/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dul:hasQuality a owl:ObjectProperty .
+
+dul:isSettingFor a owl:ObjectProperty .
+
+dul:precedes a owl:ObjectProperty .
+
+fred:Forest owl:equivalentClass wd:Q4421 .
+
+fred:Picnic owl:equivalentClass wd:Q179872 .
+
+fred:Strange owl:equivalentClass wd:Q3246315 .
+
+fred:canMove a owl:DatatypeProperty .
+
+fred:containsTrees a owl:DatatypeProperty .
+
+fred:existedBefore a owl:DatatypeProperty .
+
+fred:forest_existence_1 a fred:ForestExistence ;
+    dul:isSettingFor fred:forest_1 .
+
+fred:hasAbilityToPerceive a owl:DatatypeProperty .
+
+fred:person_1 fred:canMove true ;
+    fred:hasAbilityToPerceive true .
+
+fred:picnic_preparation_1 a fred:PicnicPreparation ;
+    dul:precedes fred:picnic_1 .
+
+fred:requiresFood a owl:DatatypeProperty .
+
+fred:takesPlaceOutdoors a owl:DatatypeProperty .
+
+fred:tree_existence_1 a fred:TreeExistence ;
+    dul:isSettingFor fred:forest_1 .
+
+fred:ForestExistence rdfs:subClassOf pbrs:exist-01 ;
+    owl:equivalentClass wn30:synset-exist-verb-1 .
+
+fred:PicnicPreparation rdfs:subClassOf pbrs:prepare-01 ;
+    owl:equivalentClass wn30:synset-prepare-verb-1 .
+
+fred:TreeExistence rdfs:subClassOf pbrs:exist-01 ;
+    owl:equivalentClass wn30:synset-exist-verb-1 .
+
+fred:picnic_1 fred:requiresFood true ;
+    fred:takesPlaceOutdoors true .
+
+fred:forest_1 dul:hasQuality fred:strange_1 ;
+    fred:containsTrees true ;
+    fred:existedBefore true .
+    
+# implicatures
+
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pblr: <https://w3id.org/framester/data/propbank-3.4.0/LocalRole/> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wn30: <https://w3id.org/framester/wn/wn30/instances/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fred:alone_1 a wn30:synset-alone-adjective-1 ;
+    owl:sameAs wd:Q3530691 .
+
+fred:experiencesUnusual a owl:ObjectProperty .
+
+fred:hasLocation a owl:ObjectProperty .
+
+fred:isAlone a owl:ObjectProperty .
+
+fred:isNotUsualPicnicLocation a owl:ObjectProperty .
+
+fred:isPlanned a owl:ObjectProperty .
+
+fred:isUnfamiliar a owl:ObjectProperty .
+
+fred:planned_1 a pbrs:plan-01 ;
+    pblr:plan-01.planner fred:person_1 ;
+    pblr:plan-01.thing-planned fred:picnic_1 .
+
+fred:unfamiliar_1 a wn30:synset-unfamiliar-adjective-1 ;
+    owl:sameAs wd:Q15622014 .
+
+fred:unusual_1 a wn30:synset-unusual-adjective-1 ;
+    owl:sameAs wd:Q15622014 .
+
+fred:forest_1 fred:isNotUsualPicnicLocation true ;
+    fred:isUnfamiliar true .
+
+fred:person_1 fred:experiencesUnusual true ;
+    fred:isAlone true .
+
+fred:picnic_1 fred:hasLocation fred:forest_1 ;
+    fred:isPlanned false .
+    
+# impact
+
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix impact: <http://www.ontologydesignpatterns.org/ont/impact/impact.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wn30: <https://w3id.org/framester/wn/wn30/instances/> .
+@prefix wn4: <https://w3id.org/framester/wn/wn30/instances/> .
+
+fred:person_1 impact:hasExpectedEmotion impact:Curiosity,
+        impact:Enjoyment ;
+    impact:hasExpectedMentalState impact:Alertness,
+        impact:Relaxation ;
+    impact:hasExpectedSensation impact:Comfort .
+
+impact:hasExpectedEmotion a owl:ObjectProperty .
+
+impact:hasExpectedMentalState a owl:ObjectProperty .
+
+impact:hasExpectedSensation a owl:ObjectProperty .
+
+impact:Alertness rdfs:subClassOf dul:Quality ;
+    owl:equivalentClass wn30:synset-alertness-noun-1 ;
+    owl:sameAs wd:Q1082094 .
+
+impact:Comfort rdfs:subClassOf dul:Quality ;
+    owl:equivalentClass wn30:synset-comfort-noun-2 ;
+    owl:sameAs wd:Q1778252 .
+
+impact:Curiosity rdfs:subClassOf dul:Quality ;
+    owl:equivalentClass wn4:synset-curiosity-noun-1 ;
+    owl:sameAs wd:Q192864 .
+
+impact:Enjoyment rdfs:subClassOf dul:Quality ;
+    owl:equivalentClass wn30:synset-enjoyment-noun-1 ;
+    owl:sameAs wd:Q13415036 .
+
+impact:Relaxation rdfs:subClassOf dul:Quality ;
+    owl:equivalentClass wn30:synset-relaxation-noun-1 ;
+    owl:sameAs wd:Q1128795 .
+
+# event sequences
+
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wn30: <https://w3id.org/framester/wn/wn30/instances/> .
+
+dul:hasLocation a owl:ObjectProperty .
+
+dul:precedes a owl:ObjectProperty .
+
+fred:be-located-at_1 a pbrs:be-located-at-91 ;
+    dul:hasLocation fred:forest_1 ;
+    dul:precedes fred:picnic_1 .
+
+fred:picnic_1 a pbrs:picnic-01 ;
+    dul:hasLocation fred:forest_1 .
+
+fred:forest_1 a wd:Q4421,
+        wn30:synset-forest-noun-1 .
+
+# causal relations
+
+@prefix caus: <http://www.ontologydesignpatterns.org/ont/causal/causal.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+
+caus:enablingConditionFor a owl:ObjectProperty .
+
+caus:necessaryConditionFor a owl:ObjectProperty .
+
+caus:triggeringCauseFor a owl:ObjectProperty .
+
+fred:be-located-at_1 caus:necessaryConditionFor fred:picnic_1 ;
+    caus:triggeringCauseFor fred:picnic_1 .
+
+fred:forest_1 caus:enablingConditionFor fred:picnic_1 ;
+    wdt:P31 wd:Q4421 .
+
+wdt:P31 a owl:ObjectProperty .
+
+fred:picnic_1 wdt:P31 wd:Q210295 .
+
+# metonymic coercions
+
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pblr: <https://w3id.org/framester/data/propbank-3.4.0/LocalRole/> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wn30: <https://w3id.org/framester/wn/wn30/instances/> .
+
+fred:contains a owl:ObjectProperty .
+
+fred:hasLocation a owl:ObjectProperty .
+
+fred:isPartOf a owl:ObjectProperty .
+
+fred:PicnicArea rdfs:subClassOf dul:Place ;
+    owl:equivalentClass wn30:synset-picnic_area-noun-1 .
+
+fred:forest_1 a pbrs:contain-01 ;
+    dul:hasLocation fred:picnicArea_1 ;
+    fred:contains fred:picnic_1 ;
+    pblr:contain-01.container fred:forest_1 ;
+    pblr:contain-01.contents fred:picnic_1 .
+
+fred:picnicArea_1 a fred:PicnicArea ;
+    dul:isPartOf fred:forest_1 .
+
+fred:picnic_1 dul:hasLocation fred:picnicArea_1 .
+
+# moral coercions
+
+@prefix coerce: <http://www.ontologydesignpatterns.org/ont/coercion/coerce.owl#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix mor: <http://www.ontologydesignpatterns.org/ont/values/moral.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pblr: <https://w3id.org/framester/data/propbank-3.4.0/LocalRole/> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wn30: <https://w3id.org/framester/wn/wn30/instances/> .
+
+coerce:coercedType a owl:ObjectProperty .
+
+dul:hasQuality a owl:ObjectProperty .
+
+fred:be-located-at_1 coerce:coercedType fred:escape_1 .
+
+fred:forest_1 coerce:coercedType fred:nature_1 .
+
+fred:picnic_1 coerce:coercedType fred:relax_1 .
+
+mor:commitment a owl:ObjectProperty .
+
+fred:escape_1 a pbrs:escape-01 ;
+    mor:commitment mor:EscapismFromReality ;
+    pblr:escape-01.source wd:Q3957 ;
+    pblr:escape-01.theme fred:person_1 .
+
+fred:nature_1 a wd:Q7860 ;
+    mor:commitment mor:NatureAppreciation .
+
+fred:relax_1 a pbrs:relax-01 ;
+    mor:commitment mor:SelfCare ;
+    pblr:relax-01.experiencer fred:person_1 .
+
+mor:EscapismFromReality a mor:MoralDue ;
+    dul:hasQuality wn30:synset-temporary-adjective-1 .
+
+mor:NatureAppreciation a mor:PositiveMoralValueGain ;
+    dul:hasQuality wn30:synset-beneficial-adjective-1 .
+
+mor:SelfCare a mor:PositiveMoralValueGain ;
+    dul:hasQuality wn30:synset-important-adjective-1 .
+    
+# symbol coercions
+
+@prefix coerce: <http://www.ontologydesignpatterns.org/ont/coercion/coerce.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix mor: <http://www.ontologydesignpatterns.org/ont/values/moral.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+coerce:coercedType a owl:ObjectProperty .
+
+fred:forest_1 coerce:coercedType mor:MysteriousPlace,
+        mor:UnfamiliarEnvironment .
+
+fred:picnic_1 coerce:coercedType mor:LeisureActivity .
+
+fred:strange_1 coerce:coercedType mor:Otherworldliness,
+        mor:Unfamiliarity .
+
+mor:LeisureActivity owl:equivalentClass wd:Q1914636 .
+
+mor:MysteriousPlace owl:equivalentClass wd:Q124490 .
+
+mor:Otherworldliness owl:equivalentClass wd:Q5124305 .
+
+mor:Unfamiliarity owl:equivalentClass wd:Q5165203 .
+
+# image schemas
+
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix is: <http://www.ontologydesignpatterns.org/ont/is/is.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wn30: <https://w3id.org/framester/wn/wn30/instances/> .
+
+fred:be-located-at_1 is:evokes is:In,
+        is:Location .
+
+fred:forest_1 is:evokes is:Container,
+        is:Enclosure,
+        is:Ground .
+
+fred:person_1 is:evokes is:Figure .
+
+fred:picnic_1 is:evokes is:Center .
+
+is:evokes a owl:ObjectProperty .
+
+is:Center a is:SpatialPrimitive ;
+    owl:equivalentClass wd:Q190495,
+        wn30:synset-center-noun-1 .
+
+is:Container a is:ImageSchema ;
+    owl:equivalentClass wd:Q987767,
+        wn30:synset-container-noun-1 .
+
+is:Enclosure a is:ImageSchema ;
+    owl:equivalentClass wd:Q1340642,
+        wn30:synset-enclosure-noun-1 .
+
+is:Figure a is:SpatialPrimitive ;
+    owl:equivalentClass wd:Q11471,
+        wn30:synset-figure-noun-1 .
+
+is:Ground a is:SpatialPrimitive ;
+    owl:equivalentClass wd:Q3504248,
+        wn30:synset-ground-noun-1 .
+
+is:In a is:ImageSchema ;
+    owl:equivalentClass wd:Q26378,
+        wn30:synset-in-adverb-1 .
+
+is:Location a is:SpatialPrimitive ;
+    owl:equivalentClass wd:Q17334923,
+        wn30:synset-location-noun-1 .
+
+is:ImageSchema rdfs:subClassOf dul:Concept .
+
+is:SpatialPrimitive rdfs:subClassOf dul:Concept .
+
+# future events
+
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix ns2: <http://www.ontologydesignpatterns.org/ont/fred/causal.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pblr: <https://w3id.org/framester/data/propbank-3.4.0/LocalRole/> .
+@prefix pbr: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wn30: <https://w3id.org/framester/wn/wn30/instances/> .
+
+dul:hasLocation a owl:ObjectProperty .
+
+dul:precedes a owl:ObjectProperty .
+
+ns2:truthDependingOn a owl:ObjectProperty .
+
+fred:clean_1 a owl:ObjectProperty,
+        pbrs:clean-02 ;
+    dul:precedes fred:leave_1 ;
+    ns2:truthDependingOn fred:picnic_1 ;
+    pblr:clean-02.agent fred:person_1 ;
+    pblr:clean-02.theme fred:picnic_area_1 .
+
+pblr:clean-02.agent a owl:ObjectProperty .
+
+pblr:clean-02.theme a owl:ObjectProperty .
+
+pblr:leave-11.agent a owl:ObjectProperty .
+
+pblr:leave-11.source a owl:ObjectProperty .
+
+fred:future_1 a dul:TimeInterval ;
+    wdt:P31 wd:Q50799 .
+
+fred:leave_1 a owl:ObjectProperty,
+        pbr:leave-11 ;
+    dul:precedes fred:future_1 ;
+    ns2:truthDependingOn fred:picnic_1 ;
+    pblr:leave-11.agent fred:person_1 ;
+    pblr:leave-11.source fred:forest_1 .
+
+fred:picnic_area_1 a owl:ObjectProperty,
+        wn30:synset-picnic_area-noun-1 ;
+    dul:hasLocation fred:forest_1 .
+
+# potential non-events
+
+@prefix boxing: <http://www.ontologydesignpatterns.org/ont/boxer/boxing.owl#> .
+@prefix caus: <http://www.ontologydesignpatterns.org/ont/causal/causal.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wn30: <https://w3id.org/framester/wn/wn30/instances/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+caus:truthDependingOn a owl:ObjectProperty .
+
+fred:normal_forest_1 a wn30:synset-forest-noun-1 ;
+    boxing:hasTruthValue false ;
+    caus:truthDependingOn fred:look_1 .
+
+fred:regular_activity_1 a pbrs:carry-out-01 ;
+    rdfs:label "Regular activity in the forest" ;
+    boxing:hasTruthValue false ;
+    caus:truthDependingOn fred:be-located-at_1 .
+
+wd:Q1150070 rdfs:label "activity" .
+
+pbrs:carry-out-01 rdfs:label "perform, conduct" ;
+    rdfs:subClassOf wd:Q1150070 .@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix arg: <http://www.ontologydesignpatterns.org/ont/argumentation-ontology#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+@prefix ext: <http://www.ontologydesignpatterns.org/ont/extended-dream-interpretation#> .
+
+# Argumentation Ontology Schema
+arg:Position rdf:type owl:Class .
+arg:Claim rdf:type owl:Class .
+arg:Agreement rdf:type owl:Class .
+arg:Disagreement rdf:type owl:Class .
+arg:NegotiablePoint rdf:type owl:Class .
+
+arg:makesClaim rdf:type owl:ObjectProperty ;
+    rdfs:domain arg:Position ;
+    rdfs:range arg:Claim .
+
+arg:hasAgreement rdf:type owl:ObjectProperty ;
+    rdfs:domain arg:Position ;
+    rdfs:range arg:Agreement .
+
+arg:hasDisagreement rdf:type owl:ObjectProperty ;
+    rdfs:domain arg:Position ;
+    rdfs:range arg:Disagreement .
+
+arg:hasNegotiablePoint rdf:type owl:ObjectProperty ;
+    rdfs:domain arg:Position ;
+    rdfs:range arg:NegotiablePoint .
+
+arg:relatesTo rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range owl:Thing .
+
+# Positions for each theorist
+arg:BeckPosition rdf:type arg:Position ;
+    rdfs:label "Beck's Position" ;
+    arg:relatesTo unified:CBTTheory .
+
+arg:SolmsPosition rdf:type arg:Position ;
+    rdfs:label "Solms' Position" ;
+    arg:relatesTo unified:NeurocognitiveTheory .
+
+arg:BowlbyPosition rdf:type arg:Position ;
+    rdfs:label "Bowlby's Position" ;
+    arg:relatesTo unified:AttachmentTheory .
+
+arg:FreudPosition rdf:type arg:Position ;
+    rdfs:label "Freud's Position" ;
+    arg:relatesTo unified:FreudianTheory .
+
+# Claims made by each theorist
+arg:BeckPosition arg:makesClaim [
+    rdf:type arg:Claim ;
+    rdfs:label "Focus on cognitive patterns" ;
+    arg:relatesTo unified:CognitiveFlexibility
+] .
+
+arg:SolmsPosition arg:makesClaim [
+    rdf:type arg:Claim ;
+    rdfs:label "Emphasis on neural underpinnings" ;
+    arg:relatesTo unified:ExplorationBehavior
+] .
+
+arg:BowlbyPosition arg:makesClaim [
+    rdf:type arg:Claim ;
+    rdfs:label "Importance of attachment and relational aspects" ;
+    arg:relatesTo ext:SecureAttachmentStyle
+] .
+
+arg:FreudPosition arg:makesClaim [
+    rdf:type arg:Claim ;
+    rdfs:label "Significance of unconscious conflicts and symbolism" ;
+    arg:relatesTo unified:SymbolicRepresentation
+] .
+
+# Agreements
+arg:BeckPosition arg:hasAgreement [
+    rdf:type arg:Agreement ;
+    rdfs:label "Acknowledgment of neural and attachment insights" ;
+    arg:relatesTo arg:SolmsPosition, arg:BowlbyPosition
+] .
+
+arg:SolmsPosition arg:hasAgreement [
+    rdf:type arg:Agreement ;
+    rdfs:label "Recognition of cognitive patterns' importance" ;
+    arg:relatesTo arg:BeckPosition
+] .
+
+arg:BowlbyPosition arg:hasAgreement [
+    rdf:type arg:Agreement ;
+    rdfs:label "Acceptance of cognitive and neural perspectives' value" ;
+    arg:relatesTo arg:BeckPosition, arg:SolmsPosition
+] .
+
+arg:FreudPosition arg:hasAgreement [
+    rdf:type arg:Agreement ;
+    rdfs:label "Appreciation for modern perspectives' insights" ;
+    arg:relatesTo arg:BeckPosition, arg:SolmsPosition, arg:BowlbyPosition
+] .
+
+# Disagreements
+arg:BeckPosition arg:hasDisagreement [
+    rdf:type arg:Disagreement ;
+    rdfs:label "Skepticism about unconscious conflicts" ;
+    arg:relatesTo arg:FreudPosition
+] .
+
+arg:SolmsPosition arg:hasDisagreement [
+    rdf:type arg:Disagreement ;
+    rdfs:label "Doubt about unconscious conflicts without neurobiological evidence" ;
+    arg:relatesTo arg:FreudPosition
+] .
+
+arg:BowlbyPosition arg:hasDisagreement [
+    rdf:type arg:Disagreement ;
+    rdfs:label "Concern about overlooking attachment experiences" ;
+    arg:relatesTo arg:FreudPosition
+] .
+
+arg:FreudPosition arg:hasDisagreement [
+    rdf:type arg:Disagreement ;
+    rdfs:label "Belief that others overlook deeper unconscious meanings" ;
+    arg:relatesTo arg:BeckPosition, arg:SolmsPosition, arg:BowlbyPosition
+] .
+
+# Negotiable Points
+arg:BeckPosition arg:hasNegotiablePoint [
+    rdf:type arg:NegotiablePoint ;
+    rdfs:label "Integration of cognitive, neural, and attachment perspectives" ;
+    arg:relatesTo unified:CreativeProcessing, unified:EmotionalProcessing
+] .
+
+arg:SolmsPosition arg:hasNegotiablePoint [
+    rdf:type arg:NegotiablePoint ;
+    rdfs:label "Viewing unconscious processes as patterns of neural activation" ;
+    arg:relatesTo unified:TemporalIntegration
+] .
+
+arg:BowlbyPosition arg:hasNegotiablePoint [
+    rdf:type arg:NegotiablePoint ;
+    rdfs:label "Considering how early experiences shape cognitive and neural responses" ;
+    arg:relatesTo ext:CopingStrategy
+] .
+
+arg:FreudPosition arg:hasNegotiablePoint [
+    rdf:type arg:NegotiablePoint ;
+    rdfs:label "Exploring potential neural correlates of psychodynamic concepts" ;
+    arg:relatesTo unified:SymbolicRepresentation
+] .
+
+# Linking to Dream138
+dream:Dream138 arg:relatesTo arg:BeckPosition, arg:SolmsPosition, arg:BowlbyPosition, arg:FreudPosition .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+@prefix ext: <http://www.ontologydesignpatterns.org/ont/extended-dream-interpretation#> .
+
+# Define DreamTheory class and individuals
+unified:DreamTheory rdf:type owl:Class .
+
+unified:CBTTheory rdf:type unified:DreamTheory ;
+    rdfs:label "Cognitive Behavioral Theory" .
+
+unified:NeurocognitiveTheory rdf:type unified:DreamTheory ;
+    rdfs:label "Neurocognitive Theory" .
+
+unified:AttachmentTheory rdf:type unified:DreamTheory ;
+    rdfs:label "Attachment Theory" .
+
+unified:FreudianTheory rdf:type unified:DreamTheory ;
+    rdfs:label "Freudian Theory" .
+
+# Define property to associate concepts with theories
+unified:associatedWithTheory rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range unified:DreamTheory .
+
+# Associate existing concepts with theories
+unified:CreativeProcessing unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory .
+unified:ExplorationBehavior unified:associatedWithTheory unified:AttachmentTheory, unified:NeurocognitiveTheory .
+unified:SymbolicRepresentation unified:associatedWithTheory unified:FreudianTheory, unified:CBTTheory .
+unified:EmotionalProcessing unified:associatedWithTheory unified:CBTTheory, unified:AttachmentTheory, unified:FreudianTheory, unified:NeurocognitiveTheory .
+unified:TemporalIntegration unified:associatedWithTheory unified:NeurocognitiveTheory .
+unified:CognitiveFlexibility unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory .
+
+# Associate interpretations with theories
+ext:CBTInterpretation unified:associatedWithTheory unified:CBTTheory .
+ext:NeurocognitiveInterpretation unified:associatedWithTheory unified:NeurocognitiveTheory .
+ext:AttachmentInterpretation unified:associatedWithTheory unified:AttachmentTheory .
+ext:FreudianInterpretation unified:associatedWithTheory unified:FreudianTheory .
+
+# Associate some key elements with theories (examples)
+fred:UnusualExperience unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory .
+fred:DreamerAlone unified:associatedWithTheory unified:AttachmentTheory .
+fred:ForestAsMysteriousPlace unified:associatedWithTheory unified:FreudianTheory .
+impact:Curiosity unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory .
+is:Container unified:associatedWithTheory unified:FreudianTheory .
+
+# Associate personality traits with theories
+ext:HighOpenness unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory .
+ext:SecureAttachmentStyle unified:associatedWithTheory unified:AttachmentTheory .
+ext:HighCognitiveFlexibility unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory .
+
+# Associate deep analyses with theories
+ext:PresuppositionAnalysis unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory .
+ext:ImplicationAnalysis unified:associatedWithTheory unified:CBTTheory, unified:FreudianTheory .
+ext:CausalAnalysis unified:associatedWithTheory unified:NeurocognitiveTheory .
+ext:NonEventAnalysis unified:associatedWithTheory unified:FreudianTheory .
+
+# Associate waking life implications with theories
+ext:BehavioralTendency unified:associatedWithTheory unified:CBTTheory .
+ext:CopingStrategy unified:associatedWithTheory unified:CBTTheory, unified:AttachmentTheory .
+ext:CreativePotential unified:associatedWithTheory unified:NeurocognitiveTheory .
+
+# Graph (2): dream138-content-graph.ttl (Corrected)
+
+@prefix amr: <https://w3id.org/framester/amr/> .
+@prefix boxing: <http://www.ontologydesignpatterns.org/ont/boxer/boxing.owl#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix fschema: <https://w3id.org/framester/schema/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pblr: <https://w3id.org/framester/data/propbank-3.4.0/LocalRole/> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix va: <http://verbatlas.org/> .
+@prefix wn30: <https://w3id.org/framester/wn/wn30/instances/> .
+@prefix wn30schema: <https://w3id.org/framester/wn/wn30/schema/> .
+
+<http://www.ontologydesignpatterns.org/ont/dream138-content-graph.ttl> rdf:type owl:Ontology .
+
+dul:hasMember a owl:ObjectProperty .
+
+fred:conjunct_1 a boxing:Conjunct ;
+    dul:hasMember fred:be-located-at_1,
+        fred:picnic_1 .
+
+fred:look_1 a pbrs:look-02 ;
+    pblr:look-02.seemed-like fred:strange_1 ;
+    pblr:look-02.seemer fred:forest_1 .
+
+pblr:be-located-at-91.entity a owl:ObjectProperty .
+
+pblr:be-located-at-91.location a owl:ObjectProperty .
+
+pblr:look-02.seemed-like a owl:ObjectProperty .
+
+pblr:look-02.seemer a owl:ObjectProperty .
+
+pblr:picnic-01.eater a owl:ObjectProperty .
+
+fschema:subsumedUnder a owl:ObjectProperty .
+
+fred:Forest rdfs:subClassOf dul:Collection,
+        wn30:supersense-noun_group ;
+    owl:equivalentClass wn30:synset-forest-noun-1 .
+
+fred:Strange rdfs:subClassOf dul:Quality,
+        wn30:supersense-adj_all ;
+    owl:equivalentClass wn30:synset-strange-adjective-1 .
+
+fred:be-located-at_1 a pbrs:be-located-at-91 ;
+    pblr:be-located-at-91.entity fred:person_1 ;
+    pblr:be-located-at-91.location fred:forest_1 .
+
+fred:picnic_1 a pbrs:picnic-01 ;
+    pblr:picnic-01.eater fred:person_1 .
+
+fred:strange_1 a fred:Strange .
+
+pbrs:be-located-at-91 rdfs:subClassOf dul:Event .
+
+pbrs:look-02 rdfs:label "seeming, appear/seem" ;
+    rdfs:subClassOf dul:Event ;
+    fschema:subsumedUnder va:0511f .
+
+pbrs:picnic-01 rdfs:label "have picnic" ;
+    rdfs:subClassOf dul:Event .
+
+wn30:synset-forest-noun-1 wn30schema:gloss "the trees and other plants in a large densely wooded area"@en-us .
+
+wn30:synset-strange-adjective-1 wn30schema:gloss "being definitely out of the ordinary and unexpected; slightly odd or even a bit weird; \"a strange exaltation that was indefinable\"; \"a strange fantastical mind\"; \"what a strange sense of humor she has\""@en-us .
+
+fred:forest_1 a fred:Forest .
+
+fred:person_1 a amr:Person .
+
+# Presuppositions
+
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fred:Forest owl:equivalentClass wd:Q4421 .
+
+fred:Picnic owl:equivalentClass wd:Q179872 .
+
+fred:Strange owl:equivalentClass wd:Q3246315 .
+
+fred:canMove a owl:DatatypeProperty .
+
+fred:containsTrees a owl:DatatypeProperty .
+
+fred:existedBefore a owl:DatatypeProperty .
+
+fred:forest_existence_1 a fred:ForestExistence ;
+    dul:isSettingFor fred:forest_1 .
+
+fred:hasAbilityToPerceive a owl:DatatypeProperty .
+
+fred:person_1 fred:canMove true ;
+    fred:hasAbilityToPerceive true .
+
+fred:picnic_preparation_1 a fred:PicnicPreparation ;
+    dul:precedes fred:picnic_1 .
+
+fred:requiresFood a owl:DatatypeProperty .
+
+fred:takesPlaceOutdoors a owl:DatatypeProperty .
+
+fred:tree_existence_1 a fred:TreeExistence ;
+    dul:isSettingFor fred:forest_1 .
+
+fred:ForestExistence rdfs:subClassOf pbrs:exist-01 ;
+    owl:equivalentClass wn30:synset-exist-verb-1 .
+
+fred:PicnicPreparation rdfs:subClassOf pbrs:prepare-01 ;
+    owl:equivalentClass wn30:synset-prepare-verb-1 .
+
+fred:TreeExistence rdfs:subClassOf pbrs:exist-01 ;
+    owl:equivalentClass wn30:synset-exist-verb-1 .
+
+fred:picnic_1 fred:requiresFood true ;
+    fred:takesPlaceOutdoors true .
+
+fred:forest_1 dul:hasQuality fred:strange_1 ;
+    fred:containsTrees true ;
+    fred:existedBefore true .
+    
+# Implicatures
+
+fred:alone_1 a wn30:synset-alone-adjective-1 ;
+    owl:sameAs wd:Q3530691 .
+
+fred:experiencesUnusual a owl:ObjectProperty .
+
+fred:hasLocation a owl:ObjectProperty .
+
+fred:isAlone a owl:ObjectProperty .
+
+fred:isNotUsualPicnicLocation a owl:ObjectProperty .
+
+fred:isPlanned a owl:ObjectProperty .
+
+fred:isUnfamiliar a owl:ObjectProperty .
+
+fred:planned_1 a pbrs:plan-01 ;
+    pblr:plan-01.planner fred:person_1 ;
+    pblr:plan-01.thing-planned fred:picnic_1 .
+
+fred:unfamiliar_1 a wn30:synset-unfamiliar-adjective-1 ;
+    owl:sameAs wd:Q15622014 .
+
+fred:unusual_1 a wn30:synset-unusual-adjective-1 ;
+    owl:sameAs wd:Q15622014 .
+
+fred:forest_1 fred:isNotUsualPicnicLocation true ;
+    fred:isUnfamiliar true .
+
+fred:person_1 fred:experiencesUnusual true ;
+    fred:isAlone true .
+
+fred:picnic_1 fred:hasLocation fred:forest_1 ;
+    fred:isPlanned false .
+    
+# Impact
+
+@prefix impact: <http://www.ontologydesignpatterns.org/ont/impact/impact.owl#> .
+@prefix wn4: <https://w3id.org/framester/wn/wn30/instances/> .
+
+fred:person_1 impact:hasExpectedEmotion impact:Curiosity,
+        impact:Enjoyment ;
+    impact:hasExpectedMentalState impact:Alertness,
+        impact:Relaxation ;
+    impact:hasExpectedSensation impact:Comfort .
+
+impact:hasExpectedEmotion a owl:ObjectProperty .
+
+impact:hasExpectedMentalState a owl:ObjectProperty .
+
+impact:hasExpectedSensation a owl:ObjectProperty .
+
+impact:Alertness rdfs:subClassOf dul:Quality ;
+    owl:equivalentClass wn30:synset-alertness-noun-1 ;
+    owl:sameAs wd:Q1082094 .
+
+impact:Comfort rdfs:subClassOf dul:Quality ;
+    owl:equivalentClass wn30:synset-comfort-noun-2 ;
+    owl:sameAs wd:Q1778252 .
+
+impact:Curiosity rdfs:subClassOf dul:Quality ;
+    owl:equivalentClass wn4:synset-curiosity-noun-1 ;
+    owl:sameAs wd:Q192864 .
+
+impact:Enjoyment rdfs:subClassOf dul:Quality ;
+    owl:equivalentClass wn30:synset-enjoyment-noun-1 ;
+    owl:sameAs wd:Q13415036 .
+
+impact:Relaxation rdfs:subClassOf dul:Quality ;
+    owl:equivalentClass wn30:synset-relaxation-noun-1 ;
+    owl:sameAs wd:Q1128795 .
+
+# Event sequences
+
+fred:be-located-at_1 a pbrs:be-located-at-91 ;
+    dul:hasLocation fred:forest_1 ;
+    dul:precedes fred:picnic_1 .
+
+fred:picnic_1 a pbrs:picnic-01 ;
+    dul:hasLocation fred:forest_1 .
+
+fred:forest_1 a wd:Q4421,
+        wn30:synset-forest-noun-1 .
+
+# Causal relations
+
+@prefix caus: <http://www.ontologydesignpatterns.org/ont/causal/causal.owl#> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+
+caus:enablingConditionFor a owl:ObjectProperty .
+
+caus:necessaryConditionFor a owl:ObjectProperty .
+
+caus:triggeringCauseFor a owl:ObjectProperty .
+
+fred:be-located-at_1 caus:necessaryConditionFor fred:picnic_1 ;
+    caus:triggeringCauseFor fred:picnic_1 .
+
+fred:forest_1 caus:enablingConditionFor fred:picnic_1 ;
+    wdt:P31 wd:Q4421 .
+
+wdt:P31 a owl:ObjectProperty .
+
+fred:picnic_1 wdt:P31 wd:Q210295 .
+
+# Metonymic coercions
+
+fred:contains a owl:ObjectProperty .
+
+fred:isPartOf a owl:ObjectProperty .
+
+fred:PicnicArea rdfs:subClassOf dul:Place ;
+    owl:equivalentClass wn30:synset-picnic_area-noun-1 .
+
+fred:forest_1 a pbrs:contain-01 ;
+    dul:hasLocation fred:picnicArea_1 ;
+    fred:contains fred:picnic_1 ;
+    pblr:contain-01.container fred:forest_1 ;
+    pblr:contain-01.contents fred:picnic_1 .
+
+fred:picnicArea_1 a fred:PicnicArea ;
+    dul:isPartOf fred:forest_1 .
+
+fred:picnic_1 dul:hasLocation fred:picnicArea_1 .
+
+# Moral coercions
+
+@prefix coerce: <http://www.ontologydesignpatterns.org/ont/coercion/coerce.owl#> .
+@prefix mor: <http://www.ontologydesignpatterns.org/ont/values/moral.owl#> .
+
+coerce:coercedType a owl:ObjectProperty .
+
+fred:be-located-at_1 coerce:coercedType fred:escape_1 .
+
+fred:forest_1 coerce:coercedType fred:nature_1 .
+
+fred:picnic_1 coerce:coercedType fred:relax_1 .
+
+mor:commitment a owl:ObjectProperty .
+
+fred:escape_1 a pbrs:escape-01 ;
+    mor:commitment mor:EscapismFromReality ;
+    pblr:escape-01.source wd:Q3957 ;
+    pblr:escape-01.theme fred:person_1 .
+
+fred:nature_1 a wd:Q7860 ;
+    mor:commitment mor:NatureAppreciation .
+
+fred:relax_1 a pbrs:relax-01 ;
+    mor:commitment mor:SelfCare ;
+    pblr:relax-01.experiencer fred:person_1 .
+
+mor:EscapismFromReality a mor:MoralDue ;
+    dul:hasQuality wn30:synset-temporary-adjective-1 .
+
+mor:NatureAppreciation a mor:PositiveMoralValueGain ;
+    dul:hasQuality wn30:synset-beneficial-adjective-1 .
+
+mor:SelfCare a mor:PositiveMoralValueGain ;
+    dul:hasQuality wn30:synset-important-adjective-1 .
+    
+# Symbol coercions
+
+fred:forest_1 coerce:coercedType mor:MysteriousPlace,
+        mor:UnfamiliarEnvironment .
+
+fred:picnic_1 coerce:coercedType mor:LeisureActivity .
+
+fred:strange_1 coerce:coercedType mor:Otherworldliness,
+        mor:Unfamiliarity .
+
+mor:LeisureActivity owl:equivalentClass wd:Q1914636 .
+
+mor:MysteriousPlace owl:equivalentClass wd:Q124490 .
+
+mor:Otherworldliness owl:equivalentClass wd:Q5124305 .
+
+mor:Unfamiliarity owl:equivalentClass wd:Q5165203 .
+
+# Image schemas
+
+@prefix is: <http://www.ontologydesignpatterns.org/ont/is/is.owl#> .
+
+fred:be-located-at_1 is:evokes is:In,
+        is:Location .
+
+fred:forest_1 is:evokes is:Container,
+        is:Enclosure,
+        is:Ground .
+
+fred:person_1 is:evokes is:Figure .
+
+fred:picnic_1 is:evokes is:Center .
+
+is:evokes a owl:ObjectProperty .
+
+is:Center a is:SpatialPrimitive ;
+    owl:equivalentClass wd:Q190495,
+        wn30:synset-center-noun-1 .
+
+is:Container a is:ImageSchema ;
+    owl:equivalentClass wd:Q987767,
+        wn30:synset-container-noun-1 .
+
+is:Enclosure a is:ImageSchema ;
+    owl:equivalentClass wd:Q1340642,
+        wn30:synset-enclosure-noun-1 .
+
+is:Figure a is:SpatialPrimitive ;
+    owl:equivalentClass wd:Q11471,
+        wn30:synset-figure-noun-1 .
+
+is:Ground a is:SpatialPrimitive ;
+    owl:equivalentClass wd:Q3504248,
+        wn30:synset-ground-noun-1 .
+
+is:In a is:ImageSchema ;
+    owl:equivalentClass wd:Q26378,
+        wn30:synset-in-adverb-1 .
+
+is:Location a is:SpatialPrimitive ;
+    owl:equivalentClass wd:Q17334923,
+        wn30:synset-location-noun-1 .
+
+is:ImageSchema rdfs:subClassOf dul:Concept .
+
+is:SpatialPrimitive rdfs:subClassOf dul:Concept .
+
+# Future events
+
+@prefix ns2: <http://www.ontologydesignpatterns.org/ont/fred/causal.owl#> .
+
+fred:clean_1 a owl:ObjectProperty,
+        pbrs:clean-02 ;
+    dul:precedes fred:leave_1 ;
+    ns2:truthDependingOn fred:picnic_1 ;
+    pblr:clean-02.agent fred:person_1 ;
+    pblr:clean-02.theme fred:picnic_area_1 .
+
+pblr:clean-02.agent a owl:ObjectProperty .
+
+pblr:clean-02.theme a owl:ObjectProperty .
+
+pblr:leave-11.agent a owl:ObjectProperty .
+
+pblr:leave-11.source a owl:ObjectProperty .
+
+fred:future_1 a dul:TimeInterval ;
+    wdt:P31 wd:Q50799 .
+
+fred:leave_1 a owl:ObjectProperty,
+        pbr:leave-11 ;
+    dul:precedes fred:future_1 ;
+    ns2:truthDependingOn fred:picnic_1 ;
+    pblr:leave-11.agent fred:person_1 ;
+    pblr:leave-11.source fred:forest_1 .
+
+fred:picnic_area_1 a owl:ObjectProperty,
+        wn30:synset-picnic_area-noun-1 ;
+    dul:hasLocation fred:forest_1 .
+
+# Potential non-events
+
+fred:normal_forest_1 a wn30:synset-forest-noun-1 ;
+    boxing:hasTruthValue false ;
+    caus:truthDependingOn fred:look_1 .
+
+fred:regular_activity_1 a pbrs:carry-out-01 ;
+    rdfs:label "Regular activity in the forest" ;
+    boxing:hasTruthValue false ;
+    caus:truthDependingOn fred:be-located-at_1 .
+
+wd:Q1150070 rdfs:label "activity" .
+
+pbrs:carry-out-01 rdfs:label "perform, conduct" ;
+    rdfs:subClassOf wd:Q1150070 .
+
+# Graph (1): dream138-rdf-graph.ttl
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<http://www.ontologydesignpatterns.org/ont/dream138-rdf-graph.ttl> rdf:type owl:Ontology .
+
+dream:Dream138 rdf:type dream:Dream ;
+    dream:dreamContent "I was in a strange looking forest and having a picnic" ;
+    dream:dreamer dream:Dreamer_mel_19 ;
+    dream:lifeCorrelation 0.0 ;
+    dream:observed false ;
+    dream:experienced true ;
+    dream:fictional true ;
+    dream:fantasy true ;
+    dream:memory false ;
+    dream:fictional_memory_mix false ;
+    dream:family_persons false ;
+    dream:unreal_elements true ;
+    dream:narrative_inconsistency false ;
+    dream:metadream false ;
+    dream:violence false ;
+    dream:suffered_violence false ;
+    dream:performed_violence false ;
+    dream:obstacles false ;
+    dream:feeling true ;
+    dream:level_of_detail 0.0 ;
+    dream:level_of_confidence 0.5 ;
+    dream:Fear false ;
+    dream:Anger false ;
+    dream:Happiness true ;
+    dream:Sadness false ;
+    dream:Surprise true ;
+    dream:Disgust false .
+
+dream:Dreamer_mel_19 rdf:type dream:Dreamer .
+
+# Graph (2): dream138-content-graph.ttl
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+
+<http://www.ontologydesignpatterns.org/ont/dream138-content-graph.ttl> rdf:type owl:Ontology .
+
+fred:forest_1 a fred:Forest ;
+    dul:hasQuality fred:strange_1 .
+
+fred:strange_1 a fred:Strange .
+
+fred:picnic_1 a fred:Picnic .
+
+fred:person_1 a fred:Person ;
+    fred:experiencesInDream fred:forest_1, fred:picnic_1 .
+
+# Graph (5): dream138-unified-theory-graph.ttl
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+
+dream:Dream138 unified:hasElement fred:forest_1 ;
+    unified:hasElement fred:strange_1 ;
+    unified:hasElement fred:picnic_1 ;
+    unified:hasElement fred:person_1 .
+
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:CBTInterpretation ;
+    unified:interpretsCorrelation unified:FantasyOpenness ;
+    unified:suggestsPersonalityTrait unified:HighOpenness ;
+    rdfs:comment "The presence of fantasy and unreal elements suggests high openness to experience and a tendency to process information creatively."
+] .
+
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:NeuroInterpretation ;
+    unified:interpretsCorrelation unified:UnrealElementsSEEKING ;
+    unified:suggestsPersonalityTrait unified:HighSEEKINGActivation ;
+    rdfs:comment "The strange forest and picnic scenario indicate high activation of the SEEKING system, suggesting strong engagement of memory and creative neural networks."
+] .
+
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:AttachmentInterpretation ;
+    unified:interpretsCorrelation unified:FantasySecureAttachment ;
+    unified:suggestsPersonalityTrait unified:SecureAttachmentStyle ;
+    rdfs:comment "The comfort in exploring an unfamiliar situation (strange forest) suggests a secure attachment style with a tendency for flexible exploration."
+] .
+
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:FreudianInterpretation ;
+    unified:interpretsCorrelation unified:UnrealElementsUnconsciousDesires ;
+    unified:suggestsPersonalityTrait unified:ComplexUnconsciousDynamics ;
+    rdfs:comment "The strange forest might represent unresolved conflicts or repressed desires, with the picnic symbolizing a form of wish fulfillment."
+] .
+
+dream:Dream138 unified:involvesProcess unified:CreativeProcessing ;
+    unified:involvesProcess unified:ExplorationBehavior ;
+    unified:involvesProcess unified:SymbolicRepresentation ;
+    unified:involvesProcess unified:EmotionalProcessing .
+
+# Graph (6): dream138-extended-interpretation-graph.ttl
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix ext: <http://www.ontologydesignpatterns.org/ont/extended-dream-interpretation#> .
+
+dream:Dream138 ext:hasPressupposition ext:ForestExistence, ext:TreeExistence, ext:PicnicConcept .
+dream:Dream138 ext:hasImplicature ext:DreamerAlone, ext:UnusualExperience, ext:UnplannedPicnic .
+
+dream:Dream138 ext:hasExpectedEmotion ext:Curiosity, ext:Enjoyment .
+dream:Dream138 ext:hasExpectedMentalState ext:Alertness, ext:Relaxation .
+dream:Dream138 ext:hasExpectedSensation ext:Comfort .
+
+dream:Dream138 ext:hasEventSequence ext:ForestLocationSequence .
+dream:Dream138 ext:hasCausalRelation ext:ForestEnablesPicnic .
+
+dream:Dream138 ext:hasMetonymicCoercion ext:ForestAsNature, ext:PicnicAsRelaxation .
+dream:Dream138 ext:hasMoralCoercion ext:PicnicAsSelfCare .
+
+dream:Dream138 ext:hasSymbolCoercion ext:ForestAsMysteriousPlace, ext:ForestAsUnfamiliarEnvironment, ext:PicnicAsLeisureActivity .
+
+dream:Dream138 ext:hasImageSchema ext:ContainerSchema, ext:FigureSchema, ext:CenterSchema .
+
+dream:Dreamer_mel_19 ext:hasPersonalityTrait ext:HighOpenness ;
+    ext:hasPersonalityTrait ext:ModerateNeuroticism ;
+    ext:hasPersonalityTrait ext:SecureAttachmentStyle .
+
+dream:Dream138 ext:hasTheoreticalInterpretation ext:CBTInterpretation, ext:NeurocognitiveInterpretation, ext:AttachmentInterpretation, ext:FreudianInterpretation .
+
+# Graph (7): dream138-network-graph.ttl
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Additional triples can be added here if needed to connect or extend the network
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+
+dream:Dream138 rdf:type dream:Dream ;
+    dream:dreamContent "I was in a strange looking forest and having a picnic" ;
+    dream:dreamer dream:Dreamer_mel_19 ;
+    dream:lifeCorrelation 0.0 ;
+    dream:observed false ;
+    dream:experienced true ;
+    dream:fictional true ;
+    dream:fantasy true ;
+    dream:memory false ;
+    dream:fictional_memory_mix false ;
+    dream:family_persons false ;
+    dream:unreal_elements true ;
+    dream:narrative_inconsistency false ;
+    dream:metadream false ;
+    dream:violence false ;
+    dream:suffered_violence false ;
+    dream:performed_violence false ;
+    dream:obstacles false ;
+    dream:feeling true ;
+    dream:level_of_detail 0.0 ;
+    dream:level_of_confidence 0.5 ;
+    dream:Fear false ;
+    dream:Anger false ;
+    dream:Happiness true ;
+    dream:Sadness false ;
+    dream:Surprise true ;
+    dream:Disgust false .
+
+dream:Dreamer_mel_19 rdf:type dream:Dreamer .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+@prefix ext: <http://www.ontologydesignpatterns.org/ont/extended-dream-interpretation#> .
+
+# Existing triples from dream138-rdf-graph
+dream:Dream138 rdf:type dream:Dream ;
+    dream:dreamContent "I was in a strange looking forest and having a picnic" ;
+    dream:dreamer dream:Dreamer_mel_19 ;
+    dream:lifeCorrelation 0.0 ;
+    dream:observed false ;
+    dream:experienced true ;
+    dream:fictional true ;
+    dream:fantasy true ;
+    dream:memory false ;
+    dream:fictional_memory_mix false ;
+    dream:family_persons false ;
+    dream:unreal_elements true ;
+    dream:narrative_inconsistency false ;
+    dream:metadream false ;
+    dream:violence false ;
+    dream:suffered_violence false ;
+    dream:performed_violence false ;
+    dream:obstacles false ;
+    dream:feeling true ;
+    dream:level_of_detail 0.0 ;
+    dream:level_of_confidence 0.5 ;
+    dream:Fear false ;
+    dream:Anger false ;
+    dream:Happiness true ;
+    dream:Sadness false ;
+    dream:Surprise true ;
+    dream:Disgust false .
+
+dream:Dreamer_mel_19 rdf:type dream:Dreamer .
+
+# Extended interpretation triples
+
+# Presuppositions and Implicatures
+ext:Presupposition rdf:type owl:Class .
+ext:Implicature rdf:type owl:Class .
+
+dream:Dream138 ext:hasPressupposition ext:ForestExistence, ext:TreeExistence, ext:PicnicConcept .
+dream:Dream138 ext:hasImplicature ext:DreamerAlone, ext:UnusualExperience, ext:UnplannedPicnic .
+
+ext:ForestExistence rdf:type ext:Presupposition .
+ext:TreeExistence rdf:type ext:Presupposition .
+ext:PicnicConcept rdf:type ext:Presupposition .
+ext:DreamerAlone rdf:type ext:Implicature .
+ext:UnusualExperience rdf:type ext:Implicature .
+ext:UnplannedPicnic rdf:type ext:Implicature .
+
+# Impact and Emotional Content
+ext:ExpectedEmotion rdf:type owl:Class .
+ext:ExpectedMentalState rdf:type owl:Class .
+ext:ExpectedSensation rdf:type owl:Class .
+
+dream:Dream138 ext:hasExpectedEmotion ext:Curiosity, ext:Enjoyment .
+dream:Dream138 ext:hasExpectedMentalState ext:Alertness, ext:Relaxation .
+dream:Dream138 ext:hasExpectedSensation ext:Comfort .
+
+ext:Curiosity rdf:type ext:ExpectedEmotion .
+ext:Enjoyment rdf:type ext:ExpectedEmotion .
+ext:Alertness rdf:type ext:ExpectedMentalState .
+ext:Relaxation rdf:type ext:ExpectedMentalState .
+ext:Comfort rdf:type ext:ExpectedSensation .
+
+# Event Sequences and Causal Relations
+ext:EventSequence rdf:type owl:Class .
+ext:CausalRelation rdf:type owl:Class .
+
+dream:Dream138 ext:hasEventSequence ext:ForestLocationSequence .
+dream:Dream138 ext:hasCausalRelation ext:ForestEnablesPicnic .
+
+ext:ForestLocationSequence rdf:type ext:EventSequence ;
+    rdfs:comment "Being located in the forest followed by having a picnic" .
+
+ext:ForestEnablesPicnic rdf:type ext:CausalRelation ;
+    rdfs:comment "The forest is both an enabling condition and the location for the picnic" .
+
+# Metonymic and Moral Coercions
+ext:MetonymicCoercion rdf:type owl:Class .
+ext:MoralCoercion rdf:type owl:Class .
+
+dream:Dream138 ext:hasMetonymicCoercion ext:ForestAsNature, ext:PicnicAsRelaxation .
+dream:Dream138 ext:hasMoralCoercion ext:PicnicAsSelfCare .
+
+ext:ForestAsNature rdf:type ext:MetonymicCoercion .
+ext:PicnicAsRelaxation rdf:type ext:MetonymicCoercion .
+ext:PicnicAsSelfCare rdf:type ext:MoralCoercion .
+
+# Symbol Coercions
+ext:SymbolCoercion rdf:type owl:Class .
+
+dream:Dream138 ext:hasSymbolCoercion ext:ForestAsMysteriousPlace, ext:ForestAsUnfamiliarEnvironment, ext:PicnicAsLeisureActivity .
+
+ext:ForestAsMysteriousPlace rdf:type ext:SymbolCoercion .
+ext:ForestAsUnfamiliarEnvironment rdf:type ext:SymbolCoercion .
+ext:PicnicAsLeisureActivity rdf:type ext:SymbolCoercion .
+
+# Image Schemas
+ext:ImageSchema rdf:type owl:Class .
+
+dream:Dream138 ext:hasImageSchema ext:ContainerSchema, ext:FigureSchema, ext:CenterSchema .
+
+ext:ContainerSchema rdf:type ext:ImageSchema ;
+    rdfs:comment "Forest as container" .
+ext:FigureSchema rdf:type ext:ImageSchema ;
+    rdfs:comment "Person as figure" .
+ext:CenterSchema rdf:type ext:ImageSchema ;
+    rdfs:comment "Picnic as center" .
+
+# Integration with Unified Theory Concepts
+dream:Dream138 unified:involvesProcess unified:CreativeProcessing ;
+    unified:involvesProcess unified:ExplorationBehavior ;
+    unified:involvesProcess unified:SymbolicRepresentation ;
+    unified:involvesProcess unified:EmotionalProcessing .
+
+# Extended Personality Traits
+dream:Dreamer_mel_19 ext:hasPersonalityTrait ext:HighOpenness ;
+    ext:hasPersonalityTrait ext:ModerateNeuroticism ;
+    ext:hasPersonalityTrait ext:SecureAttachmentStyle .
+
+ext:HighOpenness rdf:type ext:PersonalityTrait .
+ext:ModerateNeuroticism rdf:type ext:PersonalityTrait .
+ext:SecureAttachmentStyle rdf:type ext:PersonalityTrait .
+
+# Theoretical Interpretations
+ext:TheoreticalInterpretation rdf:type owl:Class .
+
+dream:Dream138 ext:hasTheoreticalInterpretation ext:CBTInterpretation, ext:NeurocognitiveInterpretation, ext:AttachmentInterpretation, ext:FreudianInterpretation .
+
+ext:CBTInterpretation rdf:type ext:TheoreticalInterpretation ;
+    rdfs:comment "Openness to new experiences and creative information processing" .
+
+ext:NeurocognitiveInterpretation rdf:type ext:TheoreticalInterpretation ;
+    rdfs:comment "Activation of SEEKING system and exploration of unfamiliar environment" .
+
+ext:AttachmentInterpretation rdf:type ext:TheoreticalInterpretation ;
+    rdfs:comment "Comfort in unfamiliar situation indicating secure attachment style" .
+
+ext:FreudianInterpretation rdf:type ext:TheoreticalInterpretation ;
+    rdfs:comment "Symbolic representation of unconscious desires or conflicts" .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix boxing: <http://www.ontologydesignpatterns.org/ont/boxer/boxing.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+
+# Existing triples from dream138-rdf-graph
+dream:Dream138 rdf:type dream:Dream ;
+    dream:dreamContent "I was in a strange looking forest and having a picnic" ;
+    dream:dreamer dream:Dreamer_mel_19 ;
+    dream:lifeCorrelation 0.0 ;
+    dream:observed false ;
+    dream:experienced true ;
+    dream:fictional true ;
+    dream:fantasy true ;
+    dream:memory false ;
+    dream:fictional_memory_mix false ;
+    dream:family_persons false ;
+    dream:unreal_elements true ;
+    dream:narrative_inconsistency false ;
+    dream:metadream false ;
+    dream:violence false ;
+    dream:suffered_violence false ;
+    dream:performed_violence false ;
+    dream:obstacles false ;
+    dream:feeling true ;
+    dream:level_of_detail 0.0 ;
+    dream:level_of_confidence 0.5 ;
+    dream:Fear false ;
+    dream:Anger false ;
+    dream:Happiness true ;
+    dream:Sadness false ;
+    dream:Surprise true ;
+    dream:Disgust false .
+
+dream:Dreamer_mel_19 rdf:type dream:Dreamer .
+
+# Merging entities from the second graph
+dream:Dream138 unified:hasElement fred:forest_1 ;
+    unified:hasElement fred:strange_1 ;
+    unified:hasElement fred:picnic_1 ;
+    unified:hasElement fred:person_1 .
+
+fred:forest_1 rdf:type fred:Forest ;
+    dul:hasQuality fred:strange_1 .
+
+fred:strange_1 rdf:type fred:Strange .
+
+fred:picnic_1 rdf:type fred:Picnic .
+
+fred:person_1 rdf:type fred:Person ;
+    unified:experiencesInDream dream:Dream138 .
+
+# Extending with interpretation of correlations
+unified:DreamTheory rdf:type owl:Class .
+unified:CBTTheory rdf:type unified:DreamTheory .
+unified:NeuroTheory rdf:type unified:DreamTheory .
+unified:AttachmentTheory rdf:type unified:DreamTheory .
+unified:FreudianTheory rdf:type unified:DreamTheory .
+
+unified:hasInterpretation rdf:type owl:ObjectProperty .
+unified:interpretsCorrelation rdf:type owl:ObjectProperty .
+unified:suggestsPersonalityTrait rdf:type owl:ObjectProperty .
+
+# CBT Interpretation
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:CBTInterpretation ;
+    unified:interpretsCorrelation unified:FantasyOpenness ;
+    unified:suggestsPersonalityTrait unified:HighOpenness ;
+    rdfs:comment "The presence of fantasy and unreal elements suggests high openness to experience and a tendency to process information creatively."
+] .
+
+# Neuro Interpretation
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:NeuroInterpretation ;
+    unified:interpretsCorrelation unified:UnrealElementsSEEKING ;
+    unified:suggestsPersonalityTrait unified:HighSEEKINGActivation ;
+    rdfs:comment "The strange forest and picnic scenario indicate high activation of the SEEKING system, suggesting strong engagement of memory and creative neural networks."
+] .
+
+# Attachment Theory Interpretation
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:AttachmentInterpretation ;
+    unified:interpretsCorrelation unified:FantasySecureAttachment ;
+    unified:suggestsPersonalityTrait unified:SecureAttachmentStyle ;
+    rdfs:comment "The comfort in exploring an unfamiliar situation (strange forest) suggests a secure attachment style with a tendency for flexible exploration."
+] .
+
+# Freudian Interpretation
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:FreudianInterpretation ;
+    unified:interpretsCorrelation unified:UnrealElementsUnconsciousDesires ;
+    unified:suggestsPersonalityTrait unified:ComplexUnconsciousDynamics ;
+    rdfs:comment "The strange forest might represent unresolved conflicts or repressed desires, with the picnic symbolizing a form of wish fulfillment."
+] .
+
+# Unified Theory Concepts
+unified:CreativeProcessing rdf:type owl:Class ;
+    rdfs:subClassOf unified:CBTConcept, unified:NeuroConcept ;
+    rdfs:comment "Represents the cognitive and neural processes involved in creative thinking and imagination." .
+
+unified:ExplorationBehavior rdf:type owl:Class ;
+    rdfs:subClassOf unified:AttachmentConcept, unified:NeuroConcept ;
+    rdfs:comment "Represents the tendency to explore novel environments, influenced by both attachment style and neural activation patterns." .
+
+unified:SymbolicRepresentation rdf:type owl:Class ;
+    rdfs:subClassOf unified:FreudianConcept, unified:CBTConcept ;
+    rdfs:comment "Represents the way dream content symbolizes underlying thoughts, emotions, or conflicts, integrating both Freudian and cognitive perspectives." .
+
+unified:EmotionalProcessing rdf:type owl:Class ;
+    rdfs:subClassOf unified:CBTConcept, unified:NeuroConcept, unified:AttachmentConcept, unified:FreudianConcept ;
+    rdfs:comment "Represents the multi-faceted nature of emotional processing in dreams, integrating cognitive, neural, relational, and unconscious aspects." .
+
+# Linking Dream138 to Unified Theory Concepts
+dream:Dream138 unified:involvesProcess unified:CreativeProcessing ;
+    unified:involvesProcess unified:ExplorationBehavior ;
+    unified:involvesProcess unified:SymbolicRepresentation ;
+    unified:involvesProcess unified:EmotionalProcessing .
+
+# Linking Dreamer_mel_19 to Personality Traits
+dream:Dreamer_mel_19 unified:hasPersonalityTrait unified:HighOpenness ;
+    unified:hasPersonalityTrait unified:HighSEEKINGActivation ;
+    unified:hasPersonalityTrait unified:SecureAttachmentStyle ;
+    unified:hasPersonalityTrait unified:ComplexUnconsciousDynamics .@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+@prefix ext: <http://www.ontologydesignpatterns.org/ont/extended-dream-interpretation#> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+
+# Alignments for Unified Theory Concepts
+unified:CreativeProcessing rdfs:subClassOf pbrs:create-01 ;
+    rdfs:subClassOf pbrs:imagine-01 .
+
+unified:ExplorationBehavior rdfs:subClassOf pbrs:explore-01 .
+
+unified:SymbolicRepresentation rdfs:subClassOf pbrs:represent-01 ;
+    rdfs:subClassOf pbrs:symbolize-01 .
+
+unified:EmotionalProcessing rdfs:subClassOf pbrs:feel-01 ;
+    rdfs:subClassOf pbrs:process-02 .
+
+unified:TemporalIntegration rdfs:subClassOf pbrs:integrate-01 ;
+    rdfs:subClassOf pbrs:combine-01 .
+
+unified:CognitiveFlexibility rdfs:subClassOf pbrs:adapt-01 ;
+    rdfs:subClassOf pbrs:change-01 .
+
+# Alignments for Extended Interpretation Concepts
+ext:ContextualAnalysis rdfs:subClassOf pbrs:analyze-01 ;
+    rdfs:subClassOf pbrs:examine-01 .
+
+ext:SymbolicAnalysis rdfs:subClassOf pbrs:analyze-01 ;
+    rdfs:subClassOf pbrs:interpret-01 .
+
+ext:EmotionalAnalysis rdfs:subClassOf pbrs:analyze-01 ;
+    rdfs:subClassOf pbrs:feel-01 .
+
+ext:CognitiveAnalysis rdfs:subClassOf pbrs:analyze-01 ;
+    rdfs:subClassOf pbrs:think-01 .
+
+ext:RelationalAnalysis rdfs:subClassOf pbrs:analyze-01 ;
+    rdfs:subClassOf pbrs:relate-01 .
+
+# Alignments for Deep Analysis Concepts
+ext:PresuppositionAnalysis rdfs:subClassOf pbrs:assume-02 ;
+    rdfs:subClassOf pbrs:analyze-01 .
+
+ext:ImplicationAnalysis rdfs:subClassOf pbrs:imply-01 ;
+    rdfs:subClassOf pbrs:analyze-01 .
+
+ext:CausalAnalysis rdfs:subClassOf pbrs:cause-01 ;
+    rdfs:subClassOf pbrs:analyze-01 .
+
+ext:NonEventAnalysis rdfs:subClassOf pbrs:analyze-01 .
+
+# Alignments for Theoretical Integration Concepts
+ext:TheoreticalSynthesis rdfs:subClassOf pbrs:synthesize-01 ;
+    rdfs:subClassOf pbrs:integrate-01 .
+
+ext:ExpandedTheoreticalSynthesis rdfs:subClassOf pbrs:synthesize-01 ;
+    rdfs:subClassOf pbrs:expand-01 .
+
+# Alignments for Waking Life Implication Concepts
+ext:BehavioralTendency rdfs:subClassOf pbrs:tend-05 ;
+    rdfs:subClassOf pbrs:behave-01 .
+
+ext:CopingStrategy rdfs:subClassOf pbrs:cope-01 ;
+    rdfs:subClassOf pbrs:manage-01 .
+
+ext:CreativePotential rdfs:subClassOf pbrs:create-01 ;
+    rdfs:subClassOf pbrs:potential-01 .
+
+# Alignments for Personality Trait Concepts
+ext:HighOpenness rdfs:subClassOf pbrs:open-01 .
+
+ext:ModerateNeuroticism rdfs:subClassOf pbrs:experience-01 .
+
+ext:SecureAttachmentStyle rdfs:subClassOf pbrs:attach-01 ;
+    rdfs:subClassOf pbrs:secure-01 .
+
+ext:HighCognitiveFlexibility rdfs:subClassOf pbrs:adapt-01 ;
+    rdfs:subClassOf pbrs:flexible-02 .
+
+ext:StrongInternalResources rdfs:subClassOf pbrs:resource-01 ;
+    rdfs:subClassOf pbrs:strong-02 .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+@prefix ext: <http://www.ontologydesignpatterns.org/ont/extended-dream-interpretation#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+
+# Continuing from the previous content...
+
+# Deeper analysis of presuppositions and implications
+dream:Dream138 ext:hasDeepAnalysis [
+    rdf:type ext:PresuppositionAnalysis ;
+    rdfs:comment """The dream presupposes the existence of a forest (fred:forest_existence_1) and trees (fred:tree_existence_1), 
+    which points to the dreamer's fundamental understanding of nature and environments. The presupposition of a picnic concept 
+    (fred:PicnicPreparation) suggests an internalized schema for leisure and social activities. These presuppositions provide a 
+    cognitive framework within which the dream's unusual elements (the forest's strangeness) become meaningful.""" ;
+    ext:incorporatesPresupposition fred:forest_existence_1, fred:tree_existence_1, fred:PicnicPreparation ;
+    ext:relatesTo unified:CognitiveFlexibility, unified:SymbolicRepresentation
+] .
+
+dream:Dream138 ext:hasDeepAnalysis [
+    rdf:type ext:ImplicationAnalysis ;
+    rdfs:comment """The implication that the picnic was unplanned (fred:isPlanned false) suggests spontaneity and adaptability. 
+    The forest being an unusual picnic location (fred:isNotUsualPicnicLocation) reinforces the theme of novel experience integration. 
+    The implication of the dreamer being alone (fred:isAlone) could indicate a period of introspection or self-reliance in waking life.""" ;
+    ext:incorporatesImplication fred:isPlanned, fred:isNotUsualPicnicLocation, fred:isAlone ;
+    ext:relatesTo unified:ExplorationBehavior, unified:EmotionalProcessing
+] .
+
+# Analysis of causal relations and event sequences
+dream:Dream138 ext:hasDeepAnalysis [
+    rdf:type ext:CausalAnalysis ;
+    rdfs:comment """The causal relation where the forest enables the picnic (fred:ForestEnablesPicnic) suggests that unfamiliar or 
+    challenging environments can facilitate unexpected positive experiences. This supports the idea of personal growth through 
+    engaging with the unknown. The event sequence of being in the forest followed by having a picnic (fred:ForestLocationSequence) 
+    implies a progression from exploration to settlement or from tension to relaxation.""" ;
+    ext:incorporatesCausalRelation fred:ForestEnablesPicnic ;
+    ext:incorporatesEventSequence fred:ForestLocationSequence ;
+    ext:relatesTo unified:TemporalIntegration, unified:CognitiveFlexibility
+] .
+
+# Integration of potential non-events
+dream:Dream138 ext:hasDeepAnalysis [
+    rdf:type ext:NonEventAnalysis ;
+    rdfs:comment """The potential non-events of a normal forest (fred:normal_forest_1) and regular forest activity (fred:regular_activity_1) 
+    highlight the significance of the forest's strangeness and the picnic activity. By not being a typical forest experience, the dream 
+    emphasizes the dreamer's engagement with novelty and their ability to find comfort in unusual circumstances.""" ;
+    ext:incorporatesNonEvent fred:normal_forest_1, fred:regular_activity_1 ;
+    ext:relatesTo unified:CreativeProcessing, unified:ExplorationBehavior
+] .
+
+# Expanded theoretical integration
+dream:Dream138 ext:hasTheoreticalIntegration [
+    rdf:type ext:ExpandedTheoreticalSynthesis ;
+    rdfs:comment """From a CBT perspective, the dream demonstrates positive schema adaptation, where potentially anxiety-inducing elements 
+    (strange forest) are integrated with comfort-inducing activities (picnic). Neurocognitively, the dream suggests not only SEEKING system 
+    activation but also successful integration of novel stimuli into existing memory structures, possibly indicating efficient hippocampal-cortical 
+    dialogue. Attachment theory would view the comfortable solo exploration as evidence of a secure internal working model, allowing the dreamer 
+    to serve as their own secure base. A Freudian interpretation might see the strange forest as the unconscious or uncharted aspects of the psyche, 
+    with the picnic representing the ego's attempt to 'domesticate' or come to terms with this content. The moral coercion of the picnic as self-care 
+    could be seen as the superego ensuring that engagement with the unconscious is done in a nurturing, non-destructive manner.""" ;
+    ext:synthesizesConcepts unified:CreativeProcessing, unified:ExplorationBehavior, unified:SymbolicRepresentation, 
+                            unified:EmotionalProcessing, unified:TemporalIntegration, unified:CognitiveFlexibility ;
+    ext:incorporatesMoralCoercion fred:PicnicAsSelfCare ;
+    ext:relatesTo ext:CBTInterpretation, ext:NeurocognitiveInterpretation, ext:AttachmentInterpretation, ext:FreudianInterpretation
+] .
+
+# Waking life implications
+dream:Dream138 ext:hasWakingLifeImplication [
+    rdf:type ext:BehavioralTendency ;
+    rdfs:comment """The dream suggests that in waking life, the dreamer may exhibit a tendency to seek out novel experiences and environments. 
+    They likely approach unfamiliar situations with a blend of curiosity and comfort, able to find enjoyment even in strange circumstances. 
+    This could manifest as a willingness to travel to new places, engage with unfamiliar cultures, or tackle challenging projects at work or in personal life.""" ;
+    ext:relatesTo unified:ExplorationBehavior, unified:EmotionalProcessing
+] .
+
+dream:Dream138 ext:hasWakingLifeImplication [
+    rdf:type ext:CopingStrategy ;
+    rdfs:comment """The ability to have a picnic in a strange forest suggests that in waking life, the dreamer may have effective coping strategies 
+    for dealing with stress or uncertainty. They may be adept at finding moments of relaxation or self-care even in demanding or unfamiliar situations. 
+    This could be a valuable skill in managing work-life balance or navigating significant life changes.""" ;
+    ext:relatesTo unified:EmotionalProcessing, unified:CognitiveFlexibility
+] .
+
+dream:Dream138 ext:hasWakingLifeImplication [
+    rdf:type ext:CreativePotential ;
+    rdfs:comment """The unusual combination of elements in the dream points to high creative potential in waking life. The dreamer may excel in 
+    fields that require innovative thinking, able to connect disparate ideas or find novel solutions to problems. This creativity might express 
+    itself in artistic pursuits, scientific research, or creative problem-solving in any domain.""" ;
+    ext:relatesTo unified:CreativeProcessing, unified:CognitiveFlexibility
+] .
+
+# New properties and concepts
+ext:PresuppositionAnalysis rdfs:subClassOf ext:DeepAnalysis .
+ext:ImplicationAnalysis rdfs:subClassOf ext:DeepAnalysis .
+ext:CausalAnalysis rdfs:subClassOf ext:DeepAnalysis .
+ext:NonEventAnalysis rdfs:subClassOf ext:DeepAnalysis .
+ext:ExpandedTheoreticalSynthesis rdfs:subClassOf ext:TheoreticalSynthesis .
+ext:BehavioralTendency rdfs:subClassOf ext:WakingLifeImplication .
+ext:CopingStrategy rdfs:subClassOf ext:WakingLifeImplication .
+ext:CreativePotential rdfs:subClassOf ext:WakingLifeImplication .
+
+ext:incorporatesPresupposition a owl:ObjectProperty .
+ext:incorporatesImplication a owl:ObjectProperty .
+ext:incorporatesNonEvent a owl:ObjectProperty .
+ext:hasWakingLifeImplication a owl:ObjectProperty .
+
+#ext:relatesTo unified:EmotionalProcessing, unified:ExplorationBehavior .
+
+dream:Dream138 ext:hasExtendedInterpretation [
+    rdf:type ext:CognitiveAnalysis ;
+    rdfs:comment """The dream demonstrates significant cognitive flexibility and creative processing. The juxtaposition of a strange forest with the 
+    familiar activity of a picnic (fred:UnusualExperience, fred:UnplannedPicnic) shows the dreamer's ability to integrate disparate elements, 
+    a key aspect of creative cognition. The dream's narrative, moving from being in the forest to having a picnic (fred:ForestLocationSequence), 
+    suggests a logical progression of thought, albeit in an unusual context. The dreamer's ability to find comfort and engage in a leisurely 
+    activity in an unfamiliar environment indicates adaptive cognitive strategies and positive schema activation.""" ;
+    ext:incorporatesImplicature fred:UnusualExperience, fred:UnplannedPicnic ;
+    ext:incorporatesEventSequence fred:ForestLocationSequence ;
+    ext:relatesTo unified:CreativeProcessing, unified:CognitiveFlexibility, unified:TemporalIntegration
+] .
+
+dream:Dream138 ext:hasExtendedInterpretation [
+    rdf:type ext:RelationalAnalysis ;
+    rdfs:comment """Although the dreamer appears to be alone in the dream (fred:DreamerAlone), the comfortable engagement with the environment 
+    suggests a secure internal working model of relationships. The ability to find enjoyment and relaxation in solitude, particularly in an 
+    unfamiliar setting, indicates a strong sense of self and a positive relationship with one's inner world. The picnic, as a typically social 
+    activity, might represent the internalization of positive relational experiences, allowing the dreamer to feel 'accompanied' even when alone.""" ;
+    ext:incorporatesImplicature fred:DreamerAlone ;
+    ext:relatesTo unified:ExplorationBehavior, unified:EmotionalProcessing
+] .
+
+# Additional properties and concepts
+ext:incorporatesElement a owl:ObjectProperty .
+ext:usesImageSchema a owl:ObjectProperty .
+ext:incorporatesSymbolCoercion a owl:ObjectProperty .
+ext:incorporatesMetonymicCoercion a owl:ObjectProperty .
+ext:incorporatesMoralCoercion a owl:ObjectProperty .
+ext:incorporatesImpact a owl:ObjectProperty .
+ext:incorporatesImplicature a owl:ObjectProperty .
+ext:incorporatesEventSequence a owl:ObjectProperty .
+ext:relatesTo a owl:ObjectProperty .
+
+# Expanded personality trait analysis
+dream:Dreamer_mel_19 ext:hasPersonalityTrait ext:HighOpenness ;
+    ext:hasPersonalityTrait ext:ModerateNeuroticism ;
+    ext:hasPersonalityTrait ext:SecureAttachmentStyle ;
+    ext:hasPersonalityTrait ext:HighCognitiveFlexibility ;
+    ext:hasPersonalityTrait ext:StrongInternalResources .
+
+ext:HighOpenness rdfs:subClassOf ext:PersonalityTrait ;
+    rdfs:comment "Indicates a strong tendency to seek out new experiences and engage with unfamiliar concepts." .
+
+ext:ModerateNeuroticism rdfs:subClassOf ext:PersonalityTrait ;
+    rdfs:comment "Suggests a balanced emotional response, capable of experiencing a range of emotions without being overwhelmed." .
+
+ext:SecureAttachmentStyle rdfs:subClassOf ext:PersonalityTrait ;
+    rdfs:comment "Reflects the ability to feel comfortable and secure in novel situations, based on positive internal working models." .
+
+ext:HighCognitiveFlexibility rdfs:subClassOf ext:PersonalityTrait ;
+    rdfs:comment "Demonstrates the capacity to adapt thinking and behavior in response to unusual or changing circumstances." .
+
+ext:StrongInternalResources rdfs:subClassOf ext:PersonalityTrait ;
+    rdfs:comment "Indicates robust coping mechanisms and the ability to self-soothe in potentially stressful situations." .
+
+# Theoretical integration
+dream:Dream138 ext:hasTheoreticalIntegration [
+    rdf:type ext:TheoreticalSynthesis ;
+    rdfs:comment """The dream of a strange forest and picnic demonstrates a convergence of multiple theoretical perspectives. 
+    From a CBT standpoint, it shows positive schema activation and cognitive flexibility. Neurocognitively, it suggests high 
+    SEEKING system activation and complex memory integration. The attachment perspective sees evidence of a secure base allowing 
+    comfortable exploration of the unfamiliar. Freudian theory might interpret the strange forest as the unconscious and the picnic 
+    as an ego-mediated approach to engaging with unconscious content. These perspectives collectively paint a picture of a dreamer 
+    with high openness to experience, secure attachment, and well-developed cognitive and emotional processing capabilities.""" ;
+    ext:synthesizesConcepts unified:CreativeProcessing, unified:ExplorationBehavior, unified:SymbolicRepresentation, 
+                            unified:EmotionalProcessing, unified:TemporalIntegration, unified:CognitiveFlexibility
+] .
+
+ext:TheoreticalSynthesis rdfs:subClassOf ext:ExtendedInterpretation .
+ext:synthesizesConcepts a owl:ObjectProperty .
+
+# Future implications
+dream:Dream138 ext:hasFutureImplication [
+    rdf:type ext:PotentialOutcome ;
+    rdfs:comment """The dream suggests a readiness to engage with new experiences and navigate unfamiliar situations in waking life. 
+    The dreamer's ability to find comfort and enjoyment in a strange environment indicates good adaptability and resilience. 
+    This might translate to success in new ventures, comfort with personal growth and change, and the ability to maintain emotional 
+    balance in challenging circumstances. The dream also points to a need for self-care and the importance of finding moments of 
+    relaxation even in unfamiliar or demanding situations.""" ;
+    ext:relatesTo fred:future_1, fred:clean_1, fred:leave_1
+] .
+
+ext:PotentialOutcome rdfs:subClassOf ext:ExtendedInterpretation .
+ext:hasFutureImplication a owl:ObjectProperty .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+@prefix ext: <http://www.ontologydesignpatterns.org/ont/extended-dream-interpretation#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+
+# Extended Interpretation Concepts
+ext:ExtendedInterpretation rdfs:subClassOf owl:Class .
+ext:ContextualAnalysis rdfs:subClassOf ext:ExtendedInterpretation .
+ext:SymbolicAnalysis rdfs:subClassOf ext:ExtendedInterpretation .
+ext:EmotionalAnalysis rdfs:subClassOf ext:ExtendedInterpretation .
+ext:CognitiveAnalysis rdfs:subClassOf ext:ExtendedInterpretation .
+ext:RelationalAnalysis rdfs:subClassOf ext:ExtendedInterpretation .
+
+# Extended Interpretation of Dream138
+dream:Dream138 ext:hasExtendedInterpretation [
+    rdf:type ext:ContextualAnalysis ;
+    rdfs:comment """The dream takes place in a strange forest, an environment that is simultaneously natural and unfamiliar. 
+    This setting, combined with the unexpected activity of having a picnic, creates a rich contextual backdrop for the dream experience. 
+    The forest, as a container (is:Container), represents the broader context of the dreamer's psyche, while the picnic, as a center (is:Center), 
+    symbolizes a focused activity or concern within this larger context. The strangeness of the forest (fred:strange_1) suggests that the dreamer 
+    is encountering aspects of their psyche or life situation that feel unfamiliar or not fully understood.""" ;
+    ext:incorporatesElement fred:forest_1, fred:strange_1, fred:picnic_1 ;
+    ext:usesImageSchema is:Container, is:Center ;
+    ext:relatesTo unified:ExplorationBehavior, unified:SymbolicRepresentation
+] .
+
+dream:Dream138 ext:hasExtendedInterpretation [
+    rdf:type ext:SymbolicAnalysis ;
+    rdfs:comment """The forest symbolically represents nature (fred:ForestAsNature) and an unfamiliar environment (fred:ForestAsUnfamiliarEnvironment), 
+    suggesting that the dreamer is exploring unknown aspects of their natural self or encountering new situations in life. 
+    The picnic, symbolizing relaxation (fred:PicnicAsRelaxation) and leisure (fred:PicnicAsLeisureActivity), implies a desire for comfort 
+    or enjoyment in the midst of this unfamiliarity. The moral coercion of the picnic as self-care (fred:PicnicAsSelfCare) suggests a 
+    recognition of the need for nurturing oneself while navigating unknown territories, either psychologically or in real life.""" ;
+    ext:incorporatesSymbolCoercion fred:ForestAsNature, fred:ForestAsUnfamiliarEnvironment, fred:PicnicAsLeisureActivity ;
+    ext:incorporatesMetonymicCoercion fred:PicnicAsRelaxation ;
+    ext:incorporatesMoralCoercion fred:PicnicAsSelfCare ;
+    ext:relatesTo unified:SymbolicRepresentation, unified:EmotionalProcessing
+] .
+
+dream:Dream138 ext:hasExtendedInterpretation [
+    rdf:type ext:EmotionalAnalysis ;
+    rdfs:comment """The dream evokes a complex emotional landscape. The expected emotions of curiosity and enjoyment (impact:Curiosity, impact:Enjoyment) 
+    suggest a positive approach to the unfamiliar, aligning with the dreamer's high openness to experience. The mental states of alertness and relaxation 
+    (impact:Alertness, impact:Relaxation) indicate a balance between engagement with the novel environment and a sense of comfort. 
+    The overall sensation of comfort (impact:Comfort) in this strange setting supports the interpretation of a secure attachment style, 
+    allowing the dreamer to explore unfamiliar territories without undue anxiety.""" ;
+    ext:incorporatesImpact impact:Curiosity, impact:Enjoyment, impact:Alertness, impact:Relaxation, impact:Comfort ;
+    ext:relatesTo unified:EmotionalProcessing, unified:SymbolicRepresentation, unified:EmotionalProcessing ;
+    unified:associatedWithTheory unified:FreudianTheory, unified:CBTTheory
+] .
+
+dream:Dream138 ext:hasExtendedInterpretation [
+    rdf:type ext:EmotionalAnalysis ;
+    rdfs:comment """The dream evokes a complex emotional landscape. The expected emotions of curiosity and enjoyment (impact:Curiosity, impact:Enjoyment) 
+    suggest a positive approach to the unfamiliar, aligning with the dreamer's high openness to experience. The mental states of alertness and relaxation 
+    (impact:Alertness, impact:Relaxation) indicate a balance between engagement with the novel environment and a sense of comfort.""" ;
+    ext:incorporatesImpact fred:impact:Curiosity, fred:impact:Enjoyment, fred:impact:Alertness, fred:impact:Relaxation, fred:impact:Comfort ;
+    ext:relatesTo unified:EmotionalProcessing, unified:ExplorationBehavior ;
+    unified:associatedWithTheory unified:CBTTheory, unified:AttachmentTheory
+] .
+
+dream:Dream138 ext:hasExtendedInterpretation [
+    rdf:type ext:CognitiveAnalysis ;
+    rdfs:comment """The dream demonstrates significant cognitive flexibility and creative processing. The juxtaposition of a strange forest with the 
+    familiar activity of a picnic (fred:UnusualExperience, fred:UnplannedPicnic) shows the dreamer's ability to integrate disparate elements, 
+    a key aspect of creative cognition. The dream's narrative, moving from being in the forest to having a picnic (fred:ForestLocationSequence), 
+    suggests a logical progression of thought, albeit in an unusual context.""" ;
+    ext:incorporatesImplicature fred:UnusualExperience, fred:UnplannedPicnic ;
+    ext:incorporatesEventSequence fred:ForestLocationSequence ;
+    ext:relatesTo unified:CreativeProcessing, unified:CognitiveFlexibility, unified:TemporalIntegration ;
+    unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory
+] .
+
+dream:Dream138 ext:hasExtendedInterpretation [
+    rdf:type ext:RelationalAnalysis ;
+    rdfs:comment """Although the dreamer appears to be alone in the dream (fred:DreamerAlone), the comfortable engagement with the environment 
+    suggests a secure internal working model of relationships. The ability to find enjoyment and relaxation in solitude, particularly in an 
+    unfamiliar setting, indicates a strong sense of self and a positive relationship with one's inner world.""" ;
+    ext:incorporatesImplicature fred:DreamerAlone ;
+    ext:relatesTo unified:ExplorationBehavior, unified:EmotionalProcessing ;
+    unified:associatedWithTheory unified:AttachmentTheory
+] .
+
+# Deep Analysis
+dream:Dream138 ext:hasDeepAnalysis [
+    rdf:type ext:PresuppositionAnalysis ;
+    rdfs:comment """The dream presupposes the existence of a forest (fred:forest_existence_1) and trees (fred:tree_existence_1), 
+    which points to the dreamer's fundamental understanding of nature and environments. The presupposition of a picnic concept 
+    (fred:PicnicPreparation) suggests an internalized schema for leisure and social activities.""" ;
+    ext:incorporatesPresupposition fred:forest_existence_1, fred:tree_existence_1, fred:PicnicPreparation ;
+    ext:relatesTo unified:CognitiveFlexibility, unified:SymbolicRepresentation ;
+    unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory
+] .
+
+dream:Dream138 ext:hasDeepAnalysis [
+    rdf:type ext:ImplicationAnalysis ;
+    rdfs:comment """The implication that the picnic was unplanned (fred:isPlanned false) suggests spontaneity and adaptability. 
+    The forest being an unusual picnic location (fred:isNotUsualPicnicLocation) reinforces the theme of novel experience integration.""" ;
+    ext:incorporatesImplication fred:isPlanned, fred:isNotUsualPicnicLocation, fred:isAlone ;
+    ext:relatesTo unified:ExplorationBehavior, unified:EmotionalProcessing ;
+    unified:associatedWithTheory unified:CBTTheory, unified:AttachmentTheory
+] .
+
+# Personality Traits
+dream:Dreamer_mel_19 ext:hasPersonalityTrait ext:HighOpenness, ext:ModerateNeuroticism, 
+    ext:SecureAttachmentStyle, ext:HighCognitiveFlexibility, ext:StrongInternalResources .
+
+ext:HighOpenness rdfs:subClassOf ext:PersonalityTrait ;
+    rdfs:comment "Indicates a strong tendency to seek out new experiences and engage with unfamiliar concepts." ;
+    unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory .
+
+ext:SecureAttachmentStyle rdfs:subClassOf ext:PersonalityTrait ;
+    rdfs:comment "Reflects the ability to feel comfortable and secure in novel situations, based on positive internal working models." ;
+    unified:associatedWithTheory unified:AttachmentTheory .
+
+ext:HighCognitiveFlexibility rdfs:subClassOf ext:PersonalityTrait ;
+    rdfs:comment "Demonstrates the capacity to adapt thinking and behavior in response to unusual or changing circumstances." ;
+    unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory .
+
+# Theoretical Integration
+dream:Dream138 ext:hasTheoreticalIntegration [
+    rdf:type ext:TheoreticalSynthesis ;
+    rdfs:comment """The dream of a strange forest and picnic demonstrates a convergence of multiple theoretical perspectives. 
+    From a CBT standpoint, it shows positive schema activation and cognitive flexibility. Neurocognitively, it suggests high 
+    SEEKING system activation and complex memory integration. The attachment perspective sees evidence of a secure base allowing 
+    comfortable exploration of the unfamiliar. Freudian theory might interpret the strange forest as the unconscious and the picnic 
+    as an ego-mediated approach to engaging with unconscious content.""" ;
+    ext:synthesizesConcepts unified:CreativeProcessing, unified:ExplorationBehavior, unified:SymbolicRepresentation, 
+                            unified:EmotionalProcessing, unified:TemporalIntegration, unified:CognitiveFlexibility ;
+    unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory, unified:AttachmentTheory, unified:FreudianTheory
+] .
+
+# Waking Life Implications
+dream:Dream138 ext:hasWakingLifeImplication [
+    rdf:type ext:BehavioralTendency ;
+    rdfs:comment """The dream suggests that in waking life, the dreamer may exhibit a tendency to seek out novel experiences and environments. They likely approach unfamiliar situations with a blend of curiosity and comfort, able to find enjoyment even in strange circumstances.""" ;
+    ext:relatesTo unified:ExplorationBehavior, unified:EmotionalProcessing ;
+    unified:associatedWithTheory unified:CBTTheory, unified:AttachmentTheory
+] .
+
+dream:Dream138 ext:hasWakingLifeImplication [
+    rdf:type ext:CopingStrategy ;
+    rdfs:comment """The ability to have a picnic in a strange forest suggests that in waking life, the dreamer may have effective coping strategies 
+    for dealing with stress or uncertainty. They may be adept at finding moments of relaxation or self-care even in demanding or unfamiliar situations.""" ;
+    ext:relatesTo unified:EmotionalProcessing, unified:CognitiveFlexibility ;
+    unified:associatedWithTheory unified:CBTTheory, unified:AttachmentTheory
+] .
+
+dream:Dream138 ext:hasWakingLifeImplication [
+    rdf:type ext:CreativePotential ;
+    rdfs:comment """The unusual combination of elements in the dream points to high creative potential in waking life. The dreamer may excel in 
+    fields that require innovative thinking, able to connect disparate ideas or find novel solutions to problems.""" ;
+    ext:relatesTo unified:CreativeProcessing, unified:CognitiveFlexibility ;
+    unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory
+] .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+@prefix ext: <http://www.ontologydesignpatterns.org/ont/extended-dream-interpretation#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix pblr: <https://w3id.org/framester/data/propbank-3.4.0/LocalRole/> .
+
+# Extended Interpretation Concepts with PropBank alignments
+ext:ContextualAnalysis rdfs:subClassOf pbrs:analyze-01, pbrs:examine-01 .
+ext:SymbolicAnalysis rdfs:subClassOf pbrs:analyze-01, pbrs:interpret-01 .
+ext:EmotionalAnalysis rdfs:subClassOf pbrs:analyze-01, pbrs:feel-01 .
+ext:CognitiveAnalysis rdfs:subClassOf pbrs:analyze-01, pbrs:think-01 .
+ext:RelationalAnalysis rdfs:subClassOf pbrs:analyze-01, pbrs:relate-01 .
+ext:PresuppositionAnalysis rdfs:subClassOf pbrs:assume-02, pbrs:analyze-01 .
+ext:ImplicationAnalysis rdfs:subClassOf pbrs:imply-01, pbrs:analyze-01 .
+ext:CausalAnalysis rdfs:subClassOf pbrs:cause-01, pbrs:analyze-01 .
+ext:NonEventAnalysis rdfs:subClassOf pbrs:analyze-01 .
+
+# Properties with revised PropBank mappings
+ext:incorporatesElement rdfs:subPropertyOf pblr:incorporate-01.entity .
+ext:usesImageSchema rdfs:subPropertyOf pblr:use-01.utilized .
+ext:incorporatesSymbolCoercion rdfs:subPropertyOf pblr:incorporate-01.entity .
+ext:incorporatesMetonymicCoercion rdfs:subPropertyOf pblr:incorporate-01.entity .
+ext:incorporatesMoralCoercion rdfs:subPropertyOf pblr:incorporate-01.entity .
+ext:incorporatesImpact rdfs:subPropertyOf pblr:impact-01.impactor .
+ext:incorporatesImplicature rdfs:subPropertyOf pblr:incorporate-01.entity .
+ext:incorporatesEventSequence rdfs:subPropertyOf pblr:incorporate-01.entity .
+ext:relatesTo rdfs:subPropertyOf pblr:relate-01.relation .
+ext:hasPersonalityTrait rdfs:subPropertyOf pblr:have-03.possessed .
+ext:hasTheoreticalInterpretation rdfs:subPropertyOf pblr:interpret-01.interpreted .
+ext:synthesizesConcepts rdfs:subPropertyOf pblr:synthesize-01.synthesized .
+ext:hasFutureImplication rdfs:subPropertyOf pblr:imply-01.implied .
+ext:incorporatesPresupposition rdfs:subPropertyOf pblr:presuppose-01.presupposed .
+ext:incorporatesImplication rdfs:subPropertyOf pblr:imply-01.implied .
+ext:incorporatesCausalRelation rdfs:subPropertyOf pblr:cause-01.cause .
+ext:incorporatesNonEvent rdfs:subPropertyOf pblr:incorporate-01.entity .
+ext:hasDeepAnalysis rdfs:subPropertyOf pblr:analyze-01.phenomenon .
+ext:hasWakingLifeImplication rdfs:subPropertyOf pblr:imply-01.implied .
+
+# Extended Interpretation of Dream138
+dream:Dream138 ext:hasExtendedInterpretation [
+    rdf:type ext:ContextualAnalysis ;
+    rdfs:comment """The dream takes place in a strange forest, an environment that is simultaneously natural and unfamiliar. 
+    This setting, combined with the unexpected activity of having a picnic, creates a rich contextual backdrop for the dream experience. 
+    The forest, as a container (is:Container), represents the broader context of the dreamer's psyche, while the picnic, as a center (is:Center), 
+    symbolizes a focused activity or concern within this larger context.""" ;
+    ext:incorporatesElement fred:forest_1, fred:strange_1, fred:picnic_1 ;
+    ext:usesImageSchema fred:is:Container, fred:is:Center ;
+    ext:relatesTo unified:ExplorationBehavior, unified:SymbolicRepresentation ;
+    unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory
+] .
+
+dream:Dream138 ext:hasExtendedInterpretation [
+    rdf:type ext:SymbolicAnalysis ;
+    rdfs:comment """The forest symbolically represents nature (fred:ForestAsNature) and an unfamiliar environment (fred:ForestAsUnfamiliarEnvironment), 
+    suggesting that the dreamer is exploring unknown aspects of their natural self or encountering new situations in life. 
+    The picnic, symbolizing relaxation (fred:PicnicAsRelaxation) and leisure (fred:PicnicAsLeisureActivity), implies a desire for comfort 
+    or enjoyment in the midst of this unfamiliarity.""" ;
+    ext:incorporatesSymbolCoercion fred:ForestAsNature, fred:ForestAsUnfamiliarEnvironment, fred:PicnicAsLeisureActivity ;
+    ext:incorporatesMetonymicCoercion fred:PicnicAsRelaxation ;
+    ext:incorporatesMoralCoercion fred:PicnicAsSelfCare 
+] .
+#    ext:relatesTo unified:Symb
+    
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .    
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+
+# Existing triples
+dream:Dream138 unified:hasElement fred:forest_1 ;
+    unified:hasElement fred:strange_1 ;
+    unified:hasElement fred:picnic_1 ;
+    unified:hasElement fred:person_1 .
+
+# Revised and extended interpretations
+
+# CBT Interpretation
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:CBTInterpretation ;
+    unified:interpretsCorrelation unified:FantasyOpenness ;
+    unified:suggestsPersonalityTrait unified:HighOpenness ;
+    rdfs:comment """The presence of fantasy and unreal elements (strange forest) suggests high openness to experience. 
+    The unexpected combination of a strange forest and a picnic indicates cognitive flexibility and creative information processing. 
+    The dreamer's comfort in this unusual setting suggests positive schema activation and adaptive cognitive strategies.""" ;
+    unified:relatesTo fred:forest_1, fred:strange_1, fred:picnic_1 ;
+    unified:incorporatesPresupposition fred:forest_existence_1, fred:tree_existence_1 ;
+    unified:incorporatesImplicature fred:UnusualExperience, fred:UnplannedPicnic ;
+    unified:incorporatesImpact impact:Curiosity, impact:Enjoyment ;
+    unified:incorporatesImageSchema is:Container, is:Figure, is:Center
+] .
+
+# Neurocognitive Interpretation
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:NeuroInterpretation ;
+    unified:interpretsCorrelation unified:UnrealElementsSEEKING ;
+    unified:suggestsPersonalityTrait unified:HighSEEKINGActivation ;
+    rdfs:comment """The strange forest and picnic scenario indicate high activation of the SEEKING system, 
+    suggesting strong engagement of memory and creative neural networks. The unexpected juxtaposition of elements 
+    (strange forest and picnic) points to active integration of diverse neural patterns. 
+    The sequence of events (being in the forest, then having a picnic) suggests temporal lobe involvement in memory consolidation.""" ;
+    unified:relatesTo fred:forest_1, fred:strange_1, fred:picnic_1, fred:be-located-at_1 ;
+    unified:incorporatesCausalRelation fred:ForestEnablesPicnic ;
+    unified:incorporatesEventSequence fred:ForestLocationSequence ;
+    unified:incorporatesImpact impact:Alertness, impact:Relaxation
+] .
+
+# Attachment Interpretation
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:AttachmentInterpretation ;
+    unified:interpretsCorrelation unified:FantasySecureAttachment ;
+    unified:suggestsPersonalityTrait unified:SecureAttachmentStyle ;
+    rdfs:comment """The comfort in exploring an unfamiliar situation (strange forest) suggests a secure attachment style 
+    with a tendency for flexible exploration. The ability to engage in a pleasant activity (picnic) in an unusual environment 
+    indicates a positive internal working model of self and others. The lack of anxiety or distress in this scenario 
+    further supports a secure attachment pattern.""" ;
+    unified:relatesTo fred:forest_1, fred:strange_1, fred:picnic_1, fred:person_1 ;
+    unified:incorporatesImplicature fred:DreamerAlone ;
+    unified:incorporatesImpact impact:Comfort ;
+    unified:incorporatesSymbolCoercion fred:ForestAsUnfamiliarEnvironment, fred:PicnicAsLeisureActivity
+] .
+
+# Freudian Interpretation
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:FreudianInterpretation ;
+    unified:interpretsCorrelation unified:UnrealElementsUnconsciousDesires ;
+    unified:suggestsPersonalityTrait unified:ComplexUnconsciousDynamics ;
+    rdfs:comment """The strange forest might represent unresolved conflicts or repressed desires from the unconscious, 
+    with the picnic symbolizing a form of wish fulfillment or ego-mediated compromise. The juxtaposition of the unusual (forest) 
+    and the familiar (picnic) could represent the interplay between the id's desires and the ego's attempts at satisfaction 
+    within the constraints of reality. The moral coercion of the picnic as self-care suggests superego involvement.""" ;
+    unified:relatesTo fred:forest_1, fred:strange_1, fred:picnic_1 ;
+    unified:incorporatesMetonymicCoercion fred:ForestAsNature, fred:PicnicAsRelaxation ;
+    unified:incorporatesMoralCoercion fred:PicnicAsSelfCare ;
+    unified:incorporatesSymbolCoercion fred:ForestAsMysteriousPlace, fred:strange_1
+] .
+
+# Unified Theory Concepts (extended)
+unified:CreativeProcessing rdfs:subClassOf unified:UnifiedConcept ;
+    rdfs:comment "Represents the cognitive and neural processes involved in creative thinking and imagination." ;
+    unified:relatesTo fred:strange_1, fred:UnusualExperience, impact:Curiosity .
+
+unified:ExplorationBehavior rdfs:subClassOf unified:UnifiedConcept ;
+    rdfs:comment "Represents the tendency to explore novel environments, influenced by both attachment style and neural activation patterns." ;
+    unified:relatesTo fred:forest_1, fred:UnfamiliarEnvironment, impact:Alertness .
+
+unified:SymbolicRepresentation rdfs:subClassOf unified:UnifiedConcept ;
+    rdfs:comment "Represents the way dream content symbolizes underlying thoughts, emotions, or conflicts, integrating both Freudian and cognitive perspectives." ;
+    unified:relatesTo fred:ForestAsMysteriousPlace, fred:PicnicAsLeisureActivity, fred:ForestAsNature .
+
+unified:EmotionalProcessing rdfs:subClassOf unified:UnifiedConcept ;
+    rdfs:comment "Represents the multi-faceted nature of emotional processing in dreams, integrating cognitive, neural, relational, and unconscious aspects." ;
+    unified:relatesTo impact:Enjoyment, impact:Comfort, fred:PicnicAsSelfCare .
+
+unified:TemporalIntegration rdfs:subClassOf unified:UnifiedConcept ;
+    rdfs:comment "Represents the integration of past experiences, present state, and future expectations in dream content." ;
+    unified:relatesTo fred:ForestLocationSequence, fred:forest_existence_1, fred:future_1 .
+
+unified:CognitiveFlexibility rdfs:subClassOf unified:UnifiedConcept ;
+    rdfs:comment "Represents the ability to adapt to novel situations and integrate disparate elements, as seen in both cognitive and neural processes." ;
+    unified:relatesTo fred:UnplannedPicnic, fred:strange_1, is:Container .
+
+# Linking Dream138 to Unified Theory Concepts
+dream:Dream138 unified:involvesProcess unified:CreativeProcessing ;
+    unified:involvesProcess unified:ExplorationBehavior ;
+    unified:involvesProcess unified:SymbolicRepresentation ;
+    unified:involvesProcess unified:EmotionalProcessing ;
+    unified:involvesProcess unified:TemporalIntegration ;
+    unified:involvesProcess unified:CognitiveFlexibility .
+
+# Additional properties to link interpretations to dream elements
+unified:relatesTo a owl:ObjectProperty .
+unified:incorporatesPresupposition a owl:ObjectProperty .
+unified:incorporatesImplicature a owl:ObjectProperty .
+unified:incorporatesImpact a owl:ObjectProperty .
+unified:incorporatesImageSchema a owl:ObjectProperty .
+unified:incorporatesCausalRelation a owl:ObjectProperty .
+unified:incorporatesEventSequence a owl:ObjectProperty .
+unified:incorporatesSymbolCoercion a owl:ObjectProperty .
+unified:incorporatesMetonymicCoercion a owl:ObjectProperty .
+unified:incorporatesMoralCoercion a owl:ObjectProperty .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dream: <http://www.ontologydesignpatterns.org/ont/dreams/dreams.owl#> .
+@prefix fred: <http://www.ontologydesignpatterns.org/ont/fred/domain.owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix pbrs: <https://w3id.org/framester/data/propbank-3.4.0/RoleSet/> .
+@prefix pblr: <https://w3id.org/framester/data/propbank-3.4.0/LocalRole/> .
+
+# Unified Theory Concepts with PropBank alignments
+unified:CreativeProcessing rdfs:subClassOf pbrs:create-01, pbrs:imagine-01 ;
+    rdfs:comment "Represents the cognitive and neural processes involved in creative thinking and imagination." .
+
+unified:ExplorationBehavior rdfs:subClassOf pbrs:explore-01 ;
+    rdfs:comment "Represents the tendency to explore novel environments, influenced by both attachment style and neural activation patterns." .
+
+unified:SymbolicRepresentation rdfs:subClassOf pbrs:represent-01, pbrs:symbolize-01 ;
+    rdfs:comment "Represents the way dream content symbolizes underlying thoughts, emotions, or conflicts, integrating both Freudian and cognitive perspectives." .
+
+unified:EmotionalProcessing rdfs:subClassOf pbrs:feel-01, pbrs:process-02 ;
+    rdfs:comment "Represents the multi-faceted nature of emotional processing in dreams, integrating cognitive, neural, relational, and unconscious aspects." .
+
+unified:TemporalIntegration rdfs:subClassOf pbrs:integrate-01, pbrs:combine-01 ;
+    rdfs:comment "Represents the integration of past experiences, present state, and future expectations in dream content." .
+
+unified:CognitiveFlexibility rdfs:subClassOf pbrs:adapt-01, pbrs:change-01 ;
+    rdfs:comment "Represents the ability to adapt to novel situations and integrate disparate elements, as seen in both cognitive and neural processes." .
+
+# Dream Theory class and individuals
+unified:DreamTheory rdf:type owl:Class .
+
+unified:CBTTheory rdf:type unified:DreamTheory ;
+    rdfs:label "Cognitive Behavioral Theory" .
+
+unified:NeurocognitiveTheory rdf:type unified:DreamTheory ;
+    rdfs:label "Neurocognitive Theory" .
+
+unified:AttachmentTheory rdf:type unified:DreamTheory ;
+    rdfs:label "Attachment Theory" .
+
+unified:FreudianTheory rdf:type unified:DreamTheory ;
+    rdfs:label "Freudian Theory" .
+
+# Properties with revised PropBank mappings
+unified:hasElement rdfs:subPropertyOf pblr:contain-01.contents .
+unified:hasInterpretation rdfs:subPropertyOf pblr:interpret-01.interpreted .
+unified:interpretsCorrelation rdfs:subPropertyOf pblr:correlate-01.item1 .
+unified:suggestsPersonalityTrait rdfs:subPropertyOf pblr:suggest-01.suggestion .
+unified:involvesProcess rdfs:subPropertyOf pblr:involve-01.involved .
+unified:associatedWithTheory rdfs:subPropertyOf pblr:associate-01.associated .
+
+# Dream138 interpretations
+dream:Dream138 unified:hasElement fred:forest_1, fred:strange_1, fred:picnic_1, fred:person_1 .
+
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:CBTInterpretation ;
+    unified:interpretsCorrelation unified:FantasyOpenness ;
+    unified:suggestsPersonalityTrait unified:HighOpenness ;
+    rdfs:comment """The presence of fantasy and unreal elements (strange forest) suggests high openness to experience. 
+    The unexpected combination of a strange forest and a picnic indicates cognitive flexibility and creative information processing. 
+    The dreamer's comfort in this unusual setting suggests positive schema activation and adaptive cognitive strategies.""" ;
+    unified:associatedWithTheory unified:CBTTheory
+] .
+
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:NeurocognitiveInterpretation ;
+    unified:interpretsCorrelation unified:UnrealElementsSEEKING ;
+    unified:suggestsPersonalityTrait unified:HighSEEKINGActivation ;
+    rdfs:comment """The strange forest and picnic scenario indicate high activation of the SEEKING system, 
+    suggesting strong engagement of memory and creative neural networks. The unexpected juxtaposition of elements 
+    (strange forest and picnic) points to active integration of diverse neural patterns. 
+    The sequence of events (being in the forest, then having a picnic) suggests temporal lobe involvement in memory consolidation.""" ;
+    unified:associatedWithTheory unified:NeurocognitiveTheory
+] .
+
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:AttachmentInterpretation ;
+    unified:interpretsCorrelation unified:FantasySecureAttachment ;
+    unified:suggestsPersonalityTrait unified:SecureAttachmentStyle ;
+    rdfs:comment """The comfort in exploring an unfamiliar situation (strange forest) suggests a secure attachment style 
+    with a tendency for flexible exploration. The ability to engage in a pleasant activity (picnic) in an unusual environment 
+    indicates a positive internal working model of self and others. The lack of anxiety or distress in this scenario 
+    further supports a secure attachment pattern.""" ;
+    unified:associatedWithTheory unified:AttachmentTheory
+] .
+
+dream:Dream138 unified:hasInterpretation [
+    rdf:type unified:FreudianInterpretation ;
+    unified:interpretsCorrelation unified:UnrealElementsUnconsciousDesires ;
+    unified:suggestsPersonalityTrait unified:ComplexUnconsciousDynamics ;
+    rdfs:comment """The strange forest might represent unresolved conflicts or repressed desires from the unconscious, 
+    with the picnic symbolizing a form of wish fulfillment or ego-mediated compromise. The juxtaposition of the unusual (forest) 
+    and the familiar (picnic) could represent the interplay between the id's desires and the ego's attempts at satisfaction 
+    within the constraints of reality.""" ;
+    unified:associatedWithTheory unified:FreudianTheory
+] .
+
+# Linking Dream138 to Unified Theory Concepts
+dream:Dream138 unified:involvesProcess unified:CreativeProcessing, unified:ExplorationBehavior, 
+    unified:SymbolicRepresentation, unified:EmotionalProcessing, unified:TemporalIntegration, unified:CognitiveFlexibility .
+
+# Theory associations for Unified Theory Concepts
+unified:CreativeProcessing unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory .
+unified:ExplorationBehavior unified:associatedWithTheory unified:AttachmentTheory, unified:NeurocognitiveTheory .
+unified:SymbolicRepresentation unified:associatedWithTheory unified:FreudianTheory, unified:CBTTheory .
+unified:EmotionalProcessing unified:associatedWithTheory unified:CBTTheory, unified:AttachmentTheory, unified:FreudianTheory, unified:NeurocognitiveTheory .
+unified:TemporalIntegration unified:associatedWithTheory unified:NeurocognitiveTheory .
+unified:CognitiveFlexibility unified:associatedWithTheory unified:CBTTheory, unified:NeurocognitiveTheory .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix unified: <http://www.ontologydesignpatterns.org/ont/unified-dream-theory#> .
+@prefix ext: <http://www.ontologydesignpatterns.org/ont/extended-dream-interpretation#> .
+@prefix pblr: <https://w3id.org/framester/data/propbank-3.4.0/LocalRole/> .
+
+# Revised mappings for Unified Theory properties
+unified:hasElement rdfs:subPropertyOf pblr:contain-01.contents .
+
+unified:hasInterpretation rdfs:subPropertyOf pblr:interpret-01.interpreted .
+
+unified:interpretsCorrelation rdfs:subPropertyOf pblr:correlate-01.item1 .
+
+unified:suggestsPersonalityTrait rdfs:subPropertyOf pblr:suggest-01.suggestion .
+
+unified:involvesProcess rdfs:subPropertyOf pblr:involve-01.involved .
+
+# Revised mappings for Extended Interpretation properties
+ext:incorporatesElement rdfs:subPropertyOf pblr:incorporate-01.entity .
+
+ext:usesImageSchema rdfs:subPropertyOf pblr:use-01.utilized .
+
+ext:incorporatesSymbolCoercion rdfs:subPropertyOf pblr:incorporate-01.entity .
+
+ext:incorporatesMetonymicCoercion rdfs:subPropertyOf pblr:incorporate-01.entity .
+
+ext:incorporatesMoralCoercion rdfs:subPropertyOf pblr:incorporate-01.entity .
+
+ext:incorporatesImpact rdfs:subPropertyOf pblr:impact-01.impactor .
+
+ext:incorporatesImplicature rdfs:subPropertyOf pblr:incorporate-01.entity .
+
+ext:incorporatesEventSequence rdfs:subPropertyOf pblr:incorporate-01.entity .
+
+ext:relatesTo rdfs:subPropertyOf pblr:relate-01.relation .
+
+ext:hasPersonalityTrait rdfs:subPropertyOf pblr:have-03.possessed .
+
+ext:hasTheoreticalInterpretation rdfs:subPropertyOf pblr:interpret-01.interpreted .
+
+ext:synthesizesConcepts rdfs:subPropertyOf pblr:synthesize-01.synthesized .
+
+ext:hasFutureImplication rdfs:subPropertyOf pblr:imply-01.implied .
+
+# Revised mappings for Deep Analysis properties
+ext:incorporatesPresupposition rdfs:subPropertyOf pblr:presuppose-01.presupposed .
+
+ext:incorporatesImplication rdfs:subPropertyOf pblr:imply-01.implied .
+
+ext:incorporatesCausalRelation rdfs:subPropertyOf pblr:cause-01.cause .
+
+ext:incorporatesNonEvent rdfs:subPropertyOf pblr:incorporate-01.entity .
+
+# Revised mappings for Theory Association properties
+unified:associatedWithTheory rdfs:subPropertyOf pblr:associate-01.associated .
+
+# Additional properties from graph (5) and (6)
+ext:hasDeepAnalysis rdfs:subPropertyOf pblr:analyze-01.phenomenon .
+
+ext:hasWakingLifeImplication rdfs:subPropertyOf pblr:imply-01.implied .
+
+# Examples where owl:equivalentProperty might still be appropriate
+ext:incorporates owl:equivalentProperty pblr:incorporate-01.entity .
+ext:implies owl:equivalentProperty pblr:imply-01.implied .
+
+
+#ADDED:
+arg:relatesTo a owl:ObjectProperty .
+boxing:hasTruthValue a owl:DatatypeProperty .
+caus:enablingConditionFor a owl:ObjectProperty .
+caus:necessaryConditionFor a owl:ObjectProperty .
+caus:triggeringCauseFor a owl:ObjectProperty .
+caus:truthDependingOn a owl:ObjectProperty .
+coerce:coercedType a owl:ObjectProperty .
+dream:Anger a owl:DatatypeProperty .
+dream:Disgust a owl:DatatypeProperty .
+dream:dreamContent a owl:DatatypeProperty .
+dream:dreamer a owl:ObjectProperty .
+dream:experienced a owl:DatatypeProperty .
+dream:family_persons a owl:DatatypeProperty .
+dream:fantasy a owl:DatatypeProperty .
+dream:Fear a owl:DatatypeProperty .
+dream:feeling a owl:DatatypeProperty .
+dream:fictional a owl:DatatypeProperty .
+dream:fictional_memory_mix a owl:DatatypeProperty .
+dream:Happiness a owl:DatatypeProperty .
+dream:level_of_confidence a owl:DatatypeProperty .
+dream:level_of_detail a owl:DatatypeProperty .
+dream:lifeCorrelation a owl:DatatypeProperty .
+dream:memory a owl:DatatypeProperty .
+dream:metadream a owl:DatatypeProperty .
+dream:narrative_inconsistency a owl:DatatypeProperty .
+dream:observed a owl:DatatypeProperty .
+dream:obstacles a owl:DatatypeProperty .
+dream:performed_violence a owl:DatatypeProperty .
+dream:Sadness a owl:DatatypeProperty .
+dream:suffered_violence a owl:DatatypeProperty .
+dream:Surprise a owl:DatatypeProperty .
+dream:unreal_elements a owl:DatatypeProperty .
+dream:violence a owl:DatatypeProperty .
+dul:hasLocation a owl:ObjectProperty .
+dul:hasMember a owl:ObjectProperty .
+dul:hasQuality a owl:ObjectProperty .
+dul:isPartOf a owl:ObjectProperty .
+dul:isSettingFor a owl:ObjectProperty .
+dul:precedes a owl:ObjectProperty .
+ext:hasCausalRelation a owl:ObjectProperty .
+ext:hasDeepAnalysis a owl:ObjectProperty .
+ext:hasEventSequence a owl:ObjectProperty .
+ext:hasExpectedEmotion a owl:ObjectProperty .
+ext:hasExpectedMentalState a owl:ObjectProperty .
+ext:hasExpectedSensation a owl:ObjectProperty .
+ext:hasExtendedInterpretation a owl:ObjectProperty .
+ext:hasImageSchema a owl:ObjectProperty .
+ext:hasImplicature a owl:ObjectProperty .
+ext:hasMetonymicCoercion a owl:ObjectProperty .
+ext:hasMoralCoercion a owl:ObjectProperty .
+ext:hasPersonalityTrait a owl:ObjectProperty .
+ext:hasPressupposition a owl:ObjectProperty .
+ext:hasSymbolCoercion a owl:ObjectProperty .
+ext:hasTheoreticalIntegration a owl:ObjectProperty .
+ext:hasTheoreticalInterpretation a owl:ObjectProperty .
+ext:incorporatesCausalRelation a owl:ObjectProperty .
+ext:incorporatesElement a owl:ObjectProperty .
+ext:incorporatesEventSequence a owl:ObjectProperty .
+ext:incorporatesImpact a owl:ObjectProperty .
+ext:incorporatesImplication a owl:ObjectProperty .
+ext:incorporatesImplicature a owl:ObjectProperty .
+ext:incorporatesMetonymicCoercion a owl:ObjectProperty .
+ext:incorporatesMoralCoercion a owl:ObjectProperty .
+ext:incorporatesNonEvent a owl:ObjectProperty .
+ext:incorporatesPresupposition a owl:ObjectProperty .
+ext:incorporatesSymbolCoercion a owl:ObjectProperty .
+ext:relatesTo a owl:ObjectProperty .
+ext:SecureAttachmentStyle a owl:ObjectProperty .
+ext:synthesizesConcepts a owl:ObjectProperty .
+ext:usesImageSchema a owl:ObjectProperty .
+fred:canMove a owl:ObjectProperty .
+fred:contains a owl:ObjectProperty .
+fred:containsTrees a owl:ObjectProperty .
+fred:existedBefore a owl:ObjectProperty .
+fred:experiencesInDream a owl:ObjectProperty .
+fred:experiencesUnusual a owl:DatatypeProperty .
+fred:hasAbilityToPerceive a owl:ObjectProperty .
+fred:hasLocation a owl:ObjectProperty .
+fred:isAlone a owl:DatatypeProperty .
+fred:isNotUsualPicnicLocation a owl:DatatypeProperty .
+fred:isPlanned a owl:DatatypeProperty .
+fred:isUnfamiliar a owl:DatatypeProperty .
+fred:requiresFood a owl:ObjectProperty .
+fred:takesPlaceOutdoors a owl:ObjectProperty .
+fred:UnplannedPicnic a owl:ObjectProperty .
+fschema:subsumedUnder a owl:ObjectProperty .
+impact:hasExpectedEmotion a owl:ObjectProperty .
+impact:hasExpectedMentalState a owl:ObjectProperty .
+impact:hasExpectedSensation a owl:ObjectProperty .
+is:evokes a owl:ObjectProperty .
+mor:commitment a owl:ObjectProperty .
+pblr:analyze-01.phenomenon a owl:ObjectProperty .
+pblr:be-located-at-91.entity a owl:ObjectProperty .
+pblr:be-located-at-91.location a owl:ObjectProperty .
+pblr:cause-01.cause a owl:ObjectProperty .
+pblr:clean-02.agent a owl:ObjectProperty .
+pblr:clean-02.theme a owl:ObjectProperty .
+pblr:contain-01.container a owl:ObjectProperty .
+pblr:contain-01.contents a owl:ObjectProperty .
+pblr:escape-01.source a owl:ObjectProperty .
+pblr:escape-01.theme a owl:ObjectProperty .
+pblr:have-03.possessed a owl:ObjectProperty .
+pblr:involve-01.involved a owl:ObjectProperty .
+pblr:leave-11.agent a owl:ObjectProperty .
+pblr:leave-11.source a owl:ObjectProperty .
+pblr:look-02.seemed-like a owl:ObjectProperty .
+pblr:look-02.seemer a owl:ObjectProperty .
+pblr:picnic-01.eater a owl:ObjectProperty .
+pblr:plan-01.planner a owl:ObjectProperty .
+pblr:plan-01.thing-planned a owl:ObjectProperty .
+pblr:relax-01.experiencer a owl:ObjectProperty .
+unified:associatedWithTheory a owl:ObjectProperty .
+unified:experiencesInDream a owl:ObjectProperty .
+unified:hasElement a owl:ObjectProperty .
+unified:hasPersonalityTrait a owl:ObjectProperty .
+unified:incorporatesCausalRelation a owl:ObjectProperty .
+unified:incorporatesEventSequence a owl:ObjectProperty .
+unified:incorporatesImageSchema a owl:ObjectProperty .
+unified:incorporatesImpact a owl:ObjectProperty .
+unified:incorporatesImplicature a owl:ObjectProperty .
+unified:incorporatesMetonymicCoercion a owl:ObjectProperty .
+unified:incorporatesMoralCoercion a owl:ObjectProperty .
+unified:incorporatesPresupposition a owl:ObjectProperty .
+unified:incorporatesSymbolCoercion a owl:ObjectProperty .
+unified:interpretsCorrelation a owl:ObjectProperty .
+unified:involvesProcess a owl:ObjectProperty .
+unified:relatesTo a owl:ObjectProperty .
+unified:suggestsPersonalityTrait a owl:ObjectProperty .
+wdt:P31 a owl:ObjectProperty .
+wn30schema:gloss a owl:DatatypeProperty .
